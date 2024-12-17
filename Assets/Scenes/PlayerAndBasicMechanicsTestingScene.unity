@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 1059055203}
   - component: {fileID: 1059055202}
   - component: {fileID: 1059055205}
+  - component: {fileID: 1059055206}
   m_Layer: 0
   m_Name: GERV_0
   m_TagString: Untagged
@@ -338,6 +339,21 @@ MonoBehaviour:
   targetTransform: {fileID: 0}
   trackMouse: 1
   minDistanceThreshold: 0.3
+--- !u!114 &1059055206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059055200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2f689d29dadec4cab955c0b70a922c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accelerationForce: 10
+  extraDampeningFactor: 1.5
+  haltVelocity: 0.15
 --- !u!1 &1185439416
 GameObject:
   m_ObjectHideFlags: 0
