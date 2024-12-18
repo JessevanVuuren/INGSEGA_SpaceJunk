@@ -11,7 +11,7 @@ public class RotateTowardsObject : MonoBehaviour
     [Tooltip("If set, the object will track this Transform.")]
     public Transform targetTransform;
     
-    [Tooltip("Track player's mouse position instead of any transform.")]
+    [Tooltip("Track subject's mouse position instead of any transform.")]
     public bool trackMouse = false;
 
     [Tooltip(
