@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthController : MonoBehaviour, ICollisionDamageable
+public class HealthController : MonoBehaviour, IDamageable
 {
     public float Health {
         get;
@@ -18,9 +18,9 @@ public class HealthController : MonoBehaviour, ICollisionDamageable
     //     this.healthBar.value = Health;
     // }
 
-    public void DealCollisionDamage(float damage)
+    public void Damage(IDamageEvent damageEvent)
     {
-        this.Health -= damage;
+        this.Health -= damageEvent.IncomingDamage;
 
         // if (this.healthBar)
         // {

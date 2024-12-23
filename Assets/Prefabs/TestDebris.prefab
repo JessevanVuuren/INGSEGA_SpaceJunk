@@ -165,8 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8078a20c7dcd16143a72789cba16bbc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minImpulse: 0.1
-  damageAtMinImpulse: 0
-  dontDealDamageBelowMinImpulse: 0
-  maxImpulse: 5
-  damageAtMaxImpulse: 0
+  dmgCalculator:
+    minImpulse: 0.1
+    damageAtMinImpulse: 1
+    dontDealDamageBelowMinImpulse: 0
+    maxImpulse: 5
+    damageAtMaxImpulse: 5
