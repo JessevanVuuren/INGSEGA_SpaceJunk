@@ -35,6 +35,6 @@ public class DealDamageOnCollision : MonoBehaviour
         other.Damage(dmgEvent);
 
         // Destroy this object after the collision
-        Destroy(this.gameObject);
+        // Destroy(this.gameObject);
     }
 }

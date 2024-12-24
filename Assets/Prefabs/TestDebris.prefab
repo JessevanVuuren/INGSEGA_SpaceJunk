@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 62489398281286403}
   - component: {fileID: 1559751697618349776}
   - component: {fileID: -9122185108235826153}
+  - component: {fileID: 5047080076209201639}
   m_Layer: 0
   m_Name: TestDebris
   m_TagString: Untagged
@@ -167,7 +168,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmgCalculator:
     minImpulse: 0.1
-    damageAtMinImpulse: 1
-    dontDealDamageBelowMinImpulse: 0
+    damageAtMinImpulse: 5
+    dontDealDamageBelowMinImpulse: 1
     maxImpulse: 5
-    damageAtMaxImpulse: 5
+    damageAtMaxImpulse: 100
+--- !u!114 &5047080076209201639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4132418613876808557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a05272dbb703b45b98c5fba157775b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
