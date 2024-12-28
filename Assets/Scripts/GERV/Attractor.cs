@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,7 +15,7 @@ public class Attractor : MonoBehaviour
     public KeyCode activationKey = KeyCode.Mouse0; // Key to activate attraction
     // public KeyCode releaseKey = KeyCode.Mouse1; // Key to activate attraction
 
-    // private List<Rigidbody2D> attractedObjects = new List<Rigidbody2D>();
+    private List<AttractableObject> _caughtObjects = new List<AttractableObject>();
     // private Vector2 previousShipVelocity;
 
     private bool setupValid = false;
@@ -37,7 +38,17 @@ public class Attractor : MonoBehaviour
         
         if (Input.GetKey(activationKey))
         {
-            AttractObjects();
+            List<Collider2D> otherColliders = new List<Collider2D>(); 
+        
+            // TODO: consider adding  ContactFilter2D contactFilter param to grab objects more precisely?
+            Physics2D.OverlapCollider(this.attractionCollider, otherColliders);
+
+            List<AttractableObject> attractables = otherColliders
+                .Select(collider => collider.GetComponent<AttractableObject>())
+                .Where(attractable => attractable != null)
+                .ToList();
+            
+            AttractObjects(attractables);
         }
         // else if (Input.GetKey(releaseKey))
         // {
@@ -47,20 +58,12 @@ public class Attractor : MonoBehaviour
         // previousShipVelocity = GetComponent<Rigidbody>()?.linearVelocity ?? Vector3.zero;
     }
 
-    private void AttractObjects()
+    private void AttractObjects(List<AttractableObject> attractables)
     {
-        List<Collider2D> otherColliders = new List<Collider2D>(); 
         
-        // TODO: consider adding  ContactFilter2D contactFilter param to grab objects more precisely?
-        Physics2D.OverlapCollider(this.attractionCollider, otherColliders);
-        
-        foreach (var otherCollider in otherColliders)
+        foreach (var attractable in attractables)
         {
-            AttractableObject attractable = otherCollider.GetComponent<AttractableObject>();
-
-            if (attractable == null) return;
-            
-            Rigidbody2D rb = otherCollider.attachedRigidbody;
+            Rigidbody2D rb = attractable._rb;
 
             if (rb == null) return;
             
@@ -77,6 +80,24 @@ public class Attractor : MonoBehaviour
             rb.AddForce(attractionForce + dampeningForce, ForceMode2D.Force);
         }
     }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        AttractableObject attractable = other.GetComponent<AttractableObject>();
+        
+        if(attractable==null) return;
+
+        this._caughtObjects.Add(attractable);
+    } 
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        AttractableObject attractable = other.GetComponent<AttractableObject>();
+        
+        if(attractable==null) return;
+
+        this._caughtObjects.Remove(attractable);
+    } 
 
     private Vector2 GetAttractionForce(Rigidbody2D rb)
     {
