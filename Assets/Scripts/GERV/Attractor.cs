@@ -50,6 +50,8 @@ public class Attractor : MonoBehaviour
     private void AttractObjects()
     {
         List<Collider2D> otherColliders = new List<Collider2D>(); 
+        
+        // TODO: consider adding  ContactFilter2D contactFilter param to grab objects more precisely?
         Physics2D.OverlapCollider(this.attractionCollider, otherColliders);
         
         foreach (var otherCollider in otherColliders)
