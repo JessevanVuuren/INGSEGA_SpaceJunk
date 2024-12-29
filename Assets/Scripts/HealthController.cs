@@ -4,10 +4,7 @@ using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour, IDamageable
 {
-    public float Health {
-        get;
-        set;
-    } = 100f;
+    public float Health = 100f;
     // public Slider healthBar;
     // public GameObject onDestructionEffect;
 

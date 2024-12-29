@@ -11,11 +11,16 @@ public class Attractor : MonoBehaviour
     public float dampeningForce = 200f;  // Force of attraction
     public float maxAttractionAngle = 45f; // Maximum angle (degrees) from the ship's forward direction
 
+    // [Header("Capture Settings")] 
+    // public float captureRange = 5f;
+    public Collider2D captureCollider;
+
     [Header("Input Settings")]
     public KeyCode activationKey = KeyCode.Mouse0; // Key to activate attraction
     // public KeyCode releaseKey = KeyCode.Mouse1; // Key to activate attraction
 
     private List<AttractableObject> _caughtObjects = new List<AttractableObject>();
+    private List<AttractableObject> _attractedObjects = new List<AttractableObject>();
     // private Vector2 previousShipVelocity;
 
     private bool setupValid = false;
@@ -25,7 +30,10 @@ public class Attractor : MonoBehaviour
         this.setupValid = this.attractionCollider != null 
                           && this.attractionCollider.isTrigger 
                           && this.attractionCollider.bounds.Contains(this.transform.position)
-                          && this.maxAttractionAngle < 360f;
+                          && this.maxAttractionAngle <= 180f
+                          && this.captureCollider != null
+                          && this.captureCollider.isTrigger
+                          && this.captureCollider.bounds.Contains(this.transform.position);
         
         if (this.setupValid) return;
         
@@ -36,27 +44,37 @@ public class Attractor : MonoBehaviour
     {
         if (!this.setupValid) return;
         
+        HoldObjects(this._caughtObjects);
+        
         if (Input.GetKey(activationKey))
         {
-            List<Collider2D> otherColliders = new List<Collider2D>(); 
-        
-            // TODO: consider adding  ContactFilter2D contactFilter param to grab objects more precisely?
-            Physics2D.OverlapCollider(this.attractionCollider, otherColliders);
-
-            List<AttractableObject> attractables = otherColliders
-                .Select(collider => collider.GetComponent<AttractableObject>())
-                .Where(attractable => attractable != null)
-                .ToList();
-            
-            AttractObjects(attractables);
+            AttractObjects(this._attractedObjects);
         }
-        // else if (Input.GetKey(releaseKey))
-        // {
-        //     ReleaseObjects();
-        // }
 
         // previousShipVelocity = GetComponent<Rigidbody>()?.linearVelocity ?? Vector3.zero;
     }
+    
+    private void HoldObjects(List<AttractableObject> attractables)
+    {
+        
+        // foreach (var attractable in attractables)
+        // {
+        //     Rigidbody2D rb = attractable._rb;
+        //
+        //     if (rb == null) continue;
+        //     
+        //     Vector2 directionToTarget = (rb.position - (Vector2)transform.position).normalized;
+        //     float angle = Vector2.Angle(transform.up, directionToTarget);
+        //     
+        //     Vector2 attractionForce = GetAttractionForce(rb);
+        //     Vector2 dampeningForce = GetDampeningForce(rb, attractionForce.normalized);
+        //     
+        //     // Debug.Log($"Attr: {attractionForce} Damp: {dampeningForce} Sum: {attractionForce + dampeningForce}");
+        //     
+        //     rb.AddForce(attractionForce + dampeningForce * 2f, ForceMode2D.Force);
+        // }
+    }
+
 
     private void AttractObjects(List<AttractableObject> attractables)
     {
@@ -65,12 +83,12 @@ public class Attractor : MonoBehaviour
         {
             Rigidbody2D rb = attractable._rb;
 
-            if (rb == null) return;
+            if (rb == null) continue;
             
             Vector2 directionToTarget = (rb.position - (Vector2)transform.position).normalized;
             float angle = Vector2.Angle(transform.up, directionToTarget);
             
-            if (angle > maxAttractionAngle) return;
+            if (angle > maxAttractionAngle) continue;
             
             Vector2 attractionForce = GetAttractionForce(rb);
             Vector2 dampeningForce = GetDampeningForce(rb, attractionForce.normalized);
@@ -85,18 +103,37 @@ public class Attractor : MonoBehaviour
     {
         AttractableObject attractable = other.GetComponent<AttractableObject>();
         
-        if(attractable==null) return;
+        if(attractable == null || attractable._rb == null) return;
+        // if(this._attractedObjects.Contains(attractable) || attractable == null || attractable._rb == null) return;
 
-        this._caughtObjects.Add(attractable);
+        if (other.IsTouching(this.captureCollider))
+        {
+            this._attractedObjects.Remove(attractable);
+            this._caughtObjects.Add(attractable);
+            attractable.SetParent(this.transform);
+        } else if (other.IsTouching(this.attractionCollider))
+        {
+            this._attractedObjects.Add(attractable);
+        }
+        // Debug.Log($"{this._attractedObjects.Count} {this._caughtObjects.Count}");
     } 
     
     private void OnTriggerExit2D(Collider2D other)
     {
         AttractableObject attractable = other.GetComponent<AttractableObject>();
         
-        if(attractable==null) return;
+        if(attractable == null || attractable._rb == null) return;
 
-        this._caughtObjects.Remove(attractable);
+        if (!other.IsTouching(this.captureCollider) && other.IsTouching(this.attractionCollider))
+        {
+            this._caughtObjects.Remove(attractable);
+            attractable.ResetParent();
+            this._attractedObjects.Add(attractable);
+        } else
+        {
+            this._attractedObjects.Remove(attractable);
+        }
+        // Debug.Log($"{this._attractedObjects.Count} {this._caughtObjects.Count}");
     } 
 
     private Vector2 GetAttractionForce(Rigidbody2D rb)
