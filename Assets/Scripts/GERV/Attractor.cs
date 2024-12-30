@@ -14,6 +14,8 @@ public class Attractor : MonoBehaviour
     [Header("Capture Settings")] 
     // public float captureRange = 5f;
     public Collider2D captureCollider;
+    public float holdingForce = 30f;  // Force of attraction
+    public float holdingDampeningForce = 60f;  // Force of attraction
     public Rigidbody2D parentRB;
 
     [Header("Input Settings")]
@@ -68,17 +70,18 @@ public class Attractor : MonoBehaviour
             
             // Vector2 parentMovement = this.GetComponentInParent<Rigidbody2D>().linearVelocity * Time.deltaTime;
             // rb.linearVelocity = this.GetComponentInParent<Rigidbody2D>().linearVelocity;
+            //
+            // Vector2 directionToTarget = (rb.position - (Vector2)transform.position).normalized;
+            // float angle = Vector2.Angle(transform.up, directionToTarget);
             
-            Vector2 directionToTarget = (rb.position - (Vector2)transform.position).normalized;
-            float angle = Vector2.Angle(transform.up, directionToTarget);
+            Vector2 attrVec = GetAttractionForce(rb, this.holdingForce);
+            // Vector2 dampeningDirection = (attrVec + this.GetGERVVelocityDelta()).normalized;
+            Vector2 allowedDirection = attrVec.normalized;
+            Vector2 dampVec = GetDampeningForce(rb, allowedDirection, this.holdingDampeningForce);
             
-            Vector2 attractionForce = GetAttractionForce(rb);
-            Vector2 dampeningDirection = (attractionForce + this.GetGERVVelocityDelta()).normalized;
-            Vector2 dampeningForce = GetDampeningForce(rb, dampeningDirection);
+            // Debug.Log($"Attr: {attractionForce} Damp: {dampVec} Sum: {attractionForce + dampVec}");
             
-            // Debug.Log($"Attr: {attractionForce} Damp: {dampeningForce} Sum: {attractionForce + dampeningForce}");
-            
-            rb.AddForce(attractionForce + dampeningForce * 2f, ForceMode2D.Force);
+            rb.AddForce(attrVec + dampVec, ForceMode2D.Force);
             // rb.AddForce(attractionForce * 2f, ForceMode2D.Force);
             // Vector2 additionalSpeed = this.GetGERVVelocityDelta();
             // rb.linearVelocity += additionalSpeed;
@@ -105,12 +108,12 @@ public class Attractor : MonoBehaviour
             
             if (angle > maxAttractionAngle) continue;
             
-            Vector2 attractionForce = GetAttractionForce(rb);
-            Vector2 dampeningForce = GetDampeningForce(rb, attractionForce.normalized);
+            Vector2 attrVec = GetAttractionForce(rb, this.attractionForce);
+            Vector2 dampVec = GetDampeningForce(rb, attrVec.normalized, this.dampeningForce);
             
-            // Debug.Log($"Attr: {attractionForce} Damp: {dampeningForce} Sum: {attractionForce + dampeningForce}");
+            // Debug.Log($"Attr: {attrVec} Damp: {dampVec} Sum: {attrVec + dampVec}");
             
-            rb.AddForce(attractionForce + dampeningForce, ForceMode2D.Force);
+            rb.AddForce(attrVec + dampVec, ForceMode2D.Force);
         }
     }
     
@@ -154,31 +157,32 @@ public class Attractor : MonoBehaviour
         }
         // Debug.Log($"{this._attractedObjects.Count} {this._caughtObjects.Count}");
     } 
-
-    private Vector2 GetAttractionForce(Rigidbody2D rb)
+    
+    private Vector2 GetAttractionForce(Rigidbody2D rb, float magnitude)
     {
         Vector2 directionToTarget = (rb.position - (Vector2)transform.position).normalized;
 
         // Vector2 direction = ((Vector2)transform.position + (Vector2)transform.up * 2f - rb.position).normalized;
         // rb.AddForce(-directionToTarget * attractionForce * Time.deltaTime, ForceMode2D.Force);
 
-        return -directionToTarget * (attractionForce * Time.deltaTime);
+        return -directionToTarget * (magnitude * Time.deltaTime);
     }
 
     /// <summary>
     /// Applies a dampening force to cancel velocity components not aligned with the desired direction.
     /// </summary>
     /// <param name="otherRb">The RB of the object whose velocity that needs to be dampened.</param>
-    /// <param name="attractionDirection">The desired movement direction.</param>
-    private Vector2 GetDampeningForce(Rigidbody2D otherRb, Vector2 attractionDirection)
+    /// <param name="allowedDirection">The desired movement direction.</param>
+    /// <param name="magnitude">Strength of the new force</param>
+    private Vector2 GetDampeningForce(Rigidbody2D otherRb, Vector2 allowedDirection, float magnitude)
     {
         // Project current velocity onto the input direction
         Vector2 currentDirection = otherRb.linearVelocity.normalized;
         
-        Vector2 dampeningDirection = attractionDirection - currentDirection;
+        Vector2 dampeningDirection = allowedDirection - currentDirection;
         
         // Calculate the velocity that needs to be canceled
-        return dampeningDirection * (this.dampeningForce * Time.deltaTime);
+        return dampeningDirection * (magnitude * Time.deltaTime);
     }
     
     // private void ReleaseObjects(Rigidbody2D shipRigidbody)

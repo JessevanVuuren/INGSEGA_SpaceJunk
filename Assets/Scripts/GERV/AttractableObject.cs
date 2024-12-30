@@ -20,7 +20,7 @@ public class AttractableObject : MonoBehaviour
         if (this._rb == null) return;
         // Stops physics interactions but keeps transform updates
         this._oldMass = this._rb.mass;
-        this._rb.mass = 1f;
+        this._rb.mass = 0.01f;
     }
 
     // Reactivate the Rigidbody2D
