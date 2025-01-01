@@ -1,10 +1,11 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class Attractor : MonoBehaviour
 {
+    private const float MaxAttractionAngle = 180f;
+    
     [Header("Attraction Settings")] 
     public Collider2D attractionCollider;
     public float attractionForce = 120f;  // Force of attraction
@@ -12,91 +13,109 @@ public class Attractor : MonoBehaviour
     public float maxAttractionAngle = 45f; // Maximum angle (degrees) from the ship's forward direction
 
     [Header("Capture Settings")] 
-    // public float captureRange = 5f;
     public Collider2D captureCollider;
     public float holdingForce = 30f;  // Force of attraction
     public float holdingDampeningForce = 60f;  // Force of attraction
     public uint maxCapturedObjects = 5;
+    public float movementCompensationMod = 0.5f; // Modifier for position projection
 
     [Header("Input Settings")]
     public KeyCode activationKey = KeyCode.Mouse0; // Key to activate attraction
-    // public KeyCode releaseKey = KeyCode.Mouse1; // Key to activate attraction
 
     private List<AttractableObject> _caughtObjects = new List<AttractableObject>();
     private List<AttractableObject> _attractedObjects = new List<AttractableObject>();
 
     private bool _setupValid = false;
-    
+
+    private Vector2 _previousPosition;
+    // private Vector2 _previousVelocity;
+    // private Vector2 _currentAcceleration;
+
     void Start()
     {
         this._setupValid = this.attractionCollider != null
                            && this.captureCollider != null
                            && this.attractionCollider.isTrigger
-                           && this.maxAttractionAngle <= 180f
+                           && this.maxAttractionAngle <= MaxAttractionAngle
                            && this.captureCollider.isTrigger;
-        
+
+        _previousPosition = transform.position;
+
         if (this._setupValid) return;
-        
+
         Debug.LogError($"{nameof(Attractor)} has bad settings and won't work!");
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (!this._setupValid) return;
-        
-        HoldObjects(this._caughtObjects); // This is where the code tries to calculate ship velocity delta 
-        
+
+        HoldObjects(this._caughtObjects);
+
         if (Input.GetKey(activationKey))
         {
             AttractObjects(this._attractedObjects);
         }
+        
+        TrackPrevPosition();
     }
-    
+
+    private void TrackPrevPosition()
+    {
+        Vector2 currentPosition = transform.position;
+        // Vector2 currentVelocity = (currentPosition - this._previousPosition) / Time.fixedDeltaTime;
+        // this._currentAcceleration = (currentVelocity - this._previousVelocity) / Time.fixedDeltaTime;
+        //
+        // Cache for use in next frame
+        // this._previousVelocity = currentVelocity;
+        this._previousPosition = currentPosition;
+    }
+
     private void HoldObjects(List<AttractableObject> attractables)
     {
         foreach (var attractable in attractables)
         {
             Rigidbody2D rb = attractable.Rb;
-        
+
             if (rb == null) continue;
             
-            Vector2 attrVec = GetAttractionForce(rb, this.holdingForce);
+            Vector2 posDelta = (Vector2)this.transform.position - this._previousPosition;
+            Vector2 projectedPosition = (Vector2)this.transform.position + posDelta * movementCompensationMod;
+
+            Vector2 attrVec = GetAttractionForce(rb, this.holdingForce, projectedPosition);
             Vector2 allowedDirection = attrVec.normalized;
             Vector2 dampVec = GetDampeningForce(rb, allowedDirection, this.holdingDampeningForce);
-            
-            // Debug.Log($"Attr: {attrVec} Damp: {dampVec} Sum: {attrVec + dampVec}");
-            
+
+            // Vector2 compensationForce = _currentAcceleration * (rb.mass * movementCompensationMod);
+
             rb.AddForce(attrVec + dampVec, ForceMode2D.Force);
         }
     }
 
     private void AttractObjects(List<AttractableObject> attractables)
     {
-        
         foreach (var attractable in attractables)
         {
             Rigidbody2D rb = attractable.Rb;
 
             if (rb == null) continue;
-            
+
             Vector2 directionToTarget = (rb.position - (Vector2)transform.position).normalized;
             float angle = Vector2.Angle(transform.up, directionToTarget);
-            
+
             if (angle > maxAttractionAngle) continue;
-            
-            Vector2 attrVec = GetAttractionForce(rb, this.attractionForce);
+
+            Vector2 attrVec = GetAttractionForce(rb, this.attractionForce, transform.position);
             Vector2 dampVec = GetDampeningForce(rb, attrVec.normalized, this.dampeningForce);
-            
-            // Debug.Log($"Attr: {attrVec} Damp: {dampVec} Sum: {attrVec + dampVec}");
-            
+
             rb.AddForce(attrVec + dampVec, ForceMode2D.Force);
         }
     }
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         AttractableObject attractable = other.GetComponent<AttractableObject>();
-        
+
         if(attractable == null || !attractable.IsValid) return;
 
         bool captureAreaisFull = this._caughtObjects.Count >= this.maxCapturedObjects;
@@ -109,13 +128,12 @@ public class Attractor : MonoBehaviour
         {
             this._attractedObjects.Add(attractable);
         }
-        // Debug.Log($"{this._attractedObjects.Count} {this._caughtObjects.Count}");
     } 
-    
+
     private void OnTriggerExit2D(Collider2D other)
     {
         AttractableObject attractable = other.GetComponent<AttractableObject>();
-        
+
         if(attractable == null || !attractable.IsValid) return;
 
         if (!other.IsTouching(this.captureCollider) && other.IsTouching(this.attractionCollider))
@@ -129,16 +147,12 @@ public class Attractor : MonoBehaviour
             this._attractedObjects.Remove(attractable);
         }
     } 
-    
-    private Vector2 GetAttractionForce(Rigidbody2D rb, float magnitude)
+
+    private Vector2 GetAttractionForce(Rigidbody2D rb, float magnitude, Vector2 targetPosition)
     {
-        Vector2 directionToTarget = (rb.position - (Vector2)transform.position).normalized;
-
-        // Vector2 direction = ((Vector2)transform.position + (Vector2)transform.up * 2f - rb.position).normalized;
-        // rb.AddForce(-directionToTarget * attractionForce * Time.deltaTime, ForceMode2D.Force);
-
-        return -directionToTarget * (magnitude * Time.deltaTime);
-    }
+        Vector2 directionToTarget = (rb.position - targetPosition).normalized;
+        return -directionToTarget * (magnitude * Time.fixedDeltaTime);
+    }   
 
     /// <summary>
     /// Applies a dampening force to cancel velocity components not aligned with the desired direction.
@@ -148,27 +162,10 @@ public class Attractor : MonoBehaviour
     /// <param name="magnitude">Strength of the new force</param>
     private Vector2 GetDampeningForce(Rigidbody2D otherRb, Vector2 allowedDirection, float magnitude)
     {
-        // Project current velocity onto the input direction
         Vector2 currentDirection = otherRb.linearVelocity.normalized;
-        
         Vector2 dampeningDirection = allowedDirection - currentDirection;
-        
-        // Calculate the velocity that needs to be canceled
-        return dampeningDirection * (magnitude * Time.deltaTime);
+        return dampeningDirection * (magnitude * Time.fixedDeltaTime);
     }
-    
-    // private void ReleaseObjects(Rigidbody2D shipRigidbody)
-    // {
-    //     foreach (var rb in attractedObjects)
-    //     {
-    //         if (rb == null) continue;
-    //
-    //         // Add ship's velocity change to the attracted object's velocity
-    //         rb.velocity += (shipRigidbody.velocity - _previousPosition);
-    //     }
-    //
-    //     attractedObjects.Clear();
-    // }
 
     private void OnDrawGizmosSelected()
     {
@@ -176,7 +173,7 @@ public class Attractor : MonoBehaviour
         Vector3 center = attractionCollider.bounds.center;
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(center, attractionRadius);
-    
+
         Gizmos.color = Color.green;
         Vector2 leftLimit = Quaternion.Euler(0, 0, -maxAttractionAngle) * transform.up;
         Vector2 rightLimit = Quaternion.Euler(0, 0, maxAttractionAngle) * transform.up;
@@ -184,4 +181,3 @@ public class Attractor : MonoBehaviour
         Gizmos.DrawLine(center, (Vector2)center + rightLimit * attractionRadius);
     }
 }
- 
