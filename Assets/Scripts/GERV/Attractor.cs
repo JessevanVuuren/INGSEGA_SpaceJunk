@@ -125,9 +125,9 @@ public class Attractor : MonoBehaviour
             this._attractedObjects.Add(attractable);
         } else
         {
+            this._caughtObjects.Remove(attractable);
             this._attractedObjects.Remove(attractable);
         }
-        // Debug.Log($"{this._attractedObjects.Count} {this._caughtObjects.Count}");
     } 
     
     private Vector2 GetAttractionForce(Rigidbody2D rb, float magnitude)

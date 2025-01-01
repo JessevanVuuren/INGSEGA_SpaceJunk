@@ -184,3 +184,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a05272dbb703b45b98c5fba157775b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  massModifierOnCapture: 1
+  captureLayerName: CapturedObjects
