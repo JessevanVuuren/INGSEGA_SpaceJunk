@@ -345,7 +345,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 0.5
   m_AngularDamping: 0.5
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -807,6 +807,7 @@ MonoBehaviour:
   captureCollider: {fileID: 1258268515}
   holdingForce: 2500
   holdingDampeningForce: 4500
+  maxCapturedObjects: 5
   activationKey: 323
 --- !u!212 &1258268513
 SpriteRenderer:

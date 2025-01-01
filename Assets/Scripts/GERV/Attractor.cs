@@ -16,6 +16,7 @@ public class Attractor : MonoBehaviour
     public Collider2D captureCollider;
     public float holdingForce = 30f;  // Force of attraction
     public float holdingDampeningForce = 60f;  // Force of attraction
+    public uint maxCapturedObjects = 5;
 
     [Header("Input Settings")]
     public KeyCode activationKey = KeyCode.Mouse0; // Key to activate attraction
@@ -31,10 +32,8 @@ public class Attractor : MonoBehaviour
         this._setupValid = this.attractionCollider != null
                            && this.captureCollider != null
                            && this.attractionCollider.isTrigger
-                           && this.attractionCollider.bounds.Contains(this.transform.position)
                            && this.maxAttractionAngle <= 180f
-                           && this.captureCollider.isTrigger
-                           && this.captureCollider.bounds.Contains(this.transform.position);
+                           && this.captureCollider.isTrigger;
         
         if (this._setupValid) return;
         
@@ -100,7 +99,8 @@ public class Attractor : MonoBehaviour
         
         if(attractable == null || !attractable.IsValid) return;
 
-        if (other.IsTouching(this.captureCollider))
+        bool captureAreaisFull = this._caughtObjects.Count >= this.maxCapturedObjects;
+        if (!captureAreaisFull && other.IsTouching(this.captureCollider))
         {
             this._attractedObjects.Remove(attractable);
             this._caughtObjects.Add(attractable);
@@ -173,15 +173,15 @@ public class Attractor : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         float attractionRadius = this.attractionCollider.bounds.extents.x;
-        
+        Vector3 center = attractionCollider.bounds.center;
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, attractionRadius);
+        Gizmos.DrawWireSphere(center, attractionRadius);
     
         Gizmos.color = Color.green;
         Vector2 leftLimit = Quaternion.Euler(0, 0, -maxAttractionAngle) * transform.up;
         Vector2 rightLimit = Quaternion.Euler(0, 0, maxAttractionAngle) * transform.up;
-        Gizmos.DrawLine(transform.position, (Vector2)transform.position + leftLimit * attractionRadius);
-        Gizmos.DrawLine(transform.position, (Vector2)transform.position + rightLimit * attractionRadius);
+        Gizmos.DrawLine(center, (Vector2)center + leftLimit * attractionRadius);
+        Gizmos.DrawLine(center, (Vector2)center + rightLimit * attractionRadius);
     }
 }
  
