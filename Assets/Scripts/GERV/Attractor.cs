@@ -16,7 +16,6 @@ public class Attractor : MonoBehaviour
     public Collider2D captureCollider;
     public float holdingForce = 30f;  // Force of attraction
     public float holdingDampeningForce = 60f;  // Force of attraction
-    public Rigidbody2D parentRB;
 
     [Header("Input Settings")]
     public KeyCode activationKey = KeyCode.Mouse0; // Key to activate attraction
@@ -24,22 +23,18 @@ public class Attractor : MonoBehaviour
 
     private List<AttractableObject> _caughtObjects = new List<AttractableObject>();
     private List<AttractableObject> _attractedObjects = new List<AttractableObject>();
-    private Vector2 _previousShipVelocity = new Vector2();
 
     private bool _setupValid = false;
     
     void Start()
     {
-        this.parentRB = this.GetComponentInParent<Rigidbody2D>();
-
         this._setupValid = this.attractionCollider != null
-                          && this.captureCollider != null
-                          && this.attractionCollider.isTrigger
-                          && this.attractionCollider.bounds.Contains(this.transform.position)
-                          && this.maxAttractionAngle <= 180f
-                          && this.captureCollider.isTrigger
-                          && this.captureCollider.bounds.Contains(this.transform.position)
-                          && this.parentRB != null;
+                           && this.captureCollider != null
+                           && this.attractionCollider.isTrigger
+                           && this.attractionCollider.bounds.Contains(this.transform.position)
+                           && this.maxAttractionAngle <= 180f
+                           && this.captureCollider.isTrigger
+                           && this.captureCollider.bounds.Contains(this.transform.position);
         
         if (this._setupValid) return;
         
@@ -50,48 +45,30 @@ public class Attractor : MonoBehaviour
     {
         if (!this._setupValid) return;
         
-        HoldObjects(this._caughtObjects);
+        HoldObjects(this._caughtObjects); // This is where the code tries to calculate ship velocity delta 
         
         if (Input.GetKey(activationKey))
         {
             AttractObjects(this._attractedObjects);
         }
-
-        _previousShipVelocity = this.parentRB.linearVelocity;
     }
     
     private void HoldObjects(List<AttractableObject> attractables)
     {
         foreach (var attractable in attractables)
         {
-            Rigidbody2D rb = attractable._rb;
+            Rigidbody2D rb = attractable.Rb;
         
             if (rb == null) continue;
             
-            // Vector2 parentMovement = this.GetComponentInParent<Rigidbody2D>().linearVelocity * Time.deltaTime;
-            // rb.linearVelocity = this.GetComponentInParent<Rigidbody2D>().linearVelocity;
-            //
-            // Vector2 directionToTarget = (rb.position - (Vector2)transform.position).normalized;
-            // float angle = Vector2.Angle(transform.up, directionToTarget);
-            
             Vector2 attrVec = GetAttractionForce(rb, this.holdingForce);
-            // Vector2 dampeningDirection = (attrVec + this.GetGERVVelocityDelta()).normalized;
             Vector2 allowedDirection = attrVec.normalized;
             Vector2 dampVec = GetDampeningForce(rb, allowedDirection, this.holdingDampeningForce);
             
-            // Debug.Log($"Attr: {attractionForce} Damp: {dampVec} Sum: {attractionForce + dampVec}");
+            // Debug.Log($"Attr: {attrVec} Damp: {dampVec} Sum: {attrVec + dampVec}");
             
             rb.AddForce(attrVec + dampVec, ForceMode2D.Force);
-            // rb.AddForce(attractionForce * 2f, ForceMode2D.Force);
-            // Vector2 additionalSpeed = this.GetGERVVelocityDelta();
-            // rb.linearVelocity += additionalSpeed;
         }
-    }
-
-    private Vector2 GetGERVVelocityDelta()
-    {
-        Debug.Log($"Curr Velo {this.parentRB.linearVelocity} new Velo {this._previousShipVelocity}");
-        return this.parentRB.linearVelocity - this._previousShipVelocity;
     }
 
     private void AttractObjects(List<AttractableObject> attractables)
@@ -99,7 +76,7 @@ public class Attractor : MonoBehaviour
         
         foreach (var attractable in attractables)
         {
-            Rigidbody2D rb = attractable._rb;
+            Rigidbody2D rb = attractable.Rb;
 
             if (rb == null) continue;
             
@@ -121,16 +98,13 @@ public class Attractor : MonoBehaviour
     {
         AttractableObject attractable = other.GetComponent<AttractableObject>();
         
-        if(attractable == null || attractable._rb == null) return;
-        // if(this._attractedObjects.Contains(attractable) || attractable == null || attractable._rb == null) return;
+        if(attractable == null || !attractable.IsValid) return;
 
         if (other.IsTouching(this.captureCollider))
         {
             this._attractedObjects.Remove(attractable);
             this._caughtObjects.Add(attractable);
-            // attractable.SetParent(this.transform);
-            // attractable.JoinToBodyFixed(this.GetComponentInParent<Rigidbody2D>());
-            attractable.DeactivateRigidbody();
+            attractable.SetStateCaptured();
         } else if (other.IsTouching(this.attractionCollider))
         {
             this._attractedObjects.Add(attractable);
@@ -142,14 +116,12 @@ public class Attractor : MonoBehaviour
     {
         AttractableObject attractable = other.GetComponent<AttractableObject>();
         
-        if(attractable == null || attractable._rb == null) return;
+        if(attractable == null || !attractable.IsValid) return;
 
         if (!other.IsTouching(this.captureCollider) && other.IsTouching(this.attractionCollider))
         {
             this._caughtObjects.Remove(attractable);
-            // attractable.ResetParent();
-            // attractable.DetachBodyFixed();
-            attractable.ReactivateRigidbody();
+            attractable.UndoCapturedState();
             this._attractedObjects.Add(attractable);
         } else
         {
@@ -192,7 +164,7 @@ public class Attractor : MonoBehaviour
     //         if (rb == null) continue;
     //
     //         // Add ship's velocity change to the attracted object's velocity
-    //         rb.velocity += (shipRigidbody.velocity - _previousShipVelocity);
+    //         rb.velocity += (shipRigidbody.velocity - _previousPosition);
     //     }
     //
     //     attractedObjects.Clear();
