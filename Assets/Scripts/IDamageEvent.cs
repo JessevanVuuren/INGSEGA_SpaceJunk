@@ -11,8 +11,12 @@ public interface IDamageEvent
     float IncomingDamage { get; }
     
     // The angle at which the impact took place, relative to the victim's transforms
-    Vector2 LocalAngle { get; }
+    // Useful for when angled gits should do less damage than full-on hits
+    // Optional, please do a null check before using
+    Vector2? LocalAngle { get; }
     
     // The location where the impact took place, relative to the victim's transforms
-    Vector2 LocalPosition { get; }
+    // Useful for when damage should be calculated differently based on the distance from victim's center
+    // Optional, please do a null check before using
+    Vector2? LocalPosition { get; }
 }

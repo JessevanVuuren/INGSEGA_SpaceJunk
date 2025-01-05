@@ -10,8 +10,8 @@ public class CollisionDamageEvent : IDamageEvent
     private static readonly int _maxContactCount = 3;
 
     public float IncomingDamage { get; private set; }
-    public Vector2 LocalAngle { get; private set; }
-    public Vector2 LocalPosition { get; private set; }
+    public Vector2? LocalAngle { get; private set; }
+    public Vector2? LocalPosition { get; private set; }
 
     public CollisionDamageEvent(float incomingDamage, Vector2 localAngle, Vector2 localPosition)
     {

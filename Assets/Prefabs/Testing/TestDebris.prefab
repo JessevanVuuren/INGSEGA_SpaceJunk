@@ -168,9 +168,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmgCalculator:
     minImpulse: 0.1
-    damageAtMinImpulse: 0
-    dontDealDamageBelowMinImpulse: 1
-    maxImpulse: 5
+    damageAtMinImpulse: 5
+    dontDealDamageBelowMinImpulse: 0
+    maxImpulse: 80
     damageAtMaxImpulse: 0
 --- !u!114 &5047080076209201639
 MonoBehaviour:
@@ -184,5 +184,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a05272dbb703b45b98c5fba157775b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  massModifierOnCapture: 1
   captureLayerName: CapturedObjects
