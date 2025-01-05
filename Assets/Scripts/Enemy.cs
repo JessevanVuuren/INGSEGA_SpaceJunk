@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
 
     public Texture2D texture;
+    public float dmg = 50;
     private Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
@@ -42,14 +43,27 @@ public class Enemy : MonoBehaviour
     {
 
         rb.MovePosition(Vector3.MoveTowards(transform.position, playerPos, speed * Time.deltaTime));
-        
+
         Vector3 direction = playerPos - transform.position;
         float angle = Mathf.Atan2(direction.x, direction.y);
         rb.MoveRotation(-(angle * Mathf.Rad2Deg));
     }
 
-    public void Explode() {
+    public void Explode()
+    {
         Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        IDamageable other = collision.gameObject.GetComponent<IDamageable>();
+        if (other == null) return;
+
+        CollisionDamageEvent dmgEvent = new CollisionDamageEvent(dmg);
+
+        other.Damage(dmgEvent);
+
+        Explode();
     }
 }

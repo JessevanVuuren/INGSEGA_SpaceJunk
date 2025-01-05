@@ -19,6 +19,11 @@ public class CollisionDamageEvent : IDamageEvent
         LocalAngle = localAngle;
         LocalPosition = localPosition;
     }
+
+    public CollisionDamageEvent(float incomingDamage)
+    {
+        IncomingDamage = incomingDamage;
+    }
     
     /// <summary>
     /// Calculates the total impulse of a collision based on the contact points.
