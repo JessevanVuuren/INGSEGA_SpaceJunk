@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -8,28 +9,27 @@ public class Attractor : MonoBehaviour
     
     [Header("Attraction Settings")] 
     public Collider2D attractionCollider;
-    public float attractionForce = 120f;  // Force of attraction
-    public float dampeningForce = 200f;  // Force of attraction
+    public float attractionForce = 120f;
+    public float dampeningForce = 200f;
     public float maxAttractionAngle = 45f; // Maximum angle (degrees) from the ship's forward direction
 
     [Header("Capture Settings")] 
     public Collider2D captureCollider;
-    public float holdingForce = 30f;  // Force of attraction
-    public float holdingDampeningForce = 60f;  // Force of attraction
+    public float holdingForce = 30f;
+    public float holdingDampeningForce = 60f;
     public uint maxCapturedObjects = 5;
     public float movementCompensationMod = 0.5f; // Modifier for position projection
 
     [Header("Input Settings")]
-    public KeyCode activationKey = KeyCode.Mouse0; // Key to activate attraction
+    public KeyCode activationKey = KeyCode.Mouse0;
+    public KeyCode releaseKey = KeyCode.Mouse1;
 
-    private List<AttractableObject> _caughtObjects = new List<AttractableObject>();
-    private List<AttractableObject> _attractedObjects = new List<AttractableObject>();
+    private readonly HashSet<AttractableObject> _caughtObjects = new HashSet<AttractableObject>();
+    private readonly HashSet<AttractableObject> _attractedObjects = new HashSet<AttractableObject>();
 
     private bool _setupValid = false;
 
     private Vector2 _previousPosition;
-    // private Vector2 _previousVelocity;
-    // private Vector2 _currentAcceleration;
 
     void Start()
     {
@@ -50,7 +50,10 @@ public class Attractor : MonoBehaviour
     {
         if (!this._setupValid) return;
 
-        HoldObjects(this._caughtObjects);
+        if (!Input.GetKey(releaseKey))
+        {
+            HoldObjects(this._caughtObjects);
+        }
 
         if (Input.GetKey(activationKey))
         {
@@ -63,15 +66,10 @@ public class Attractor : MonoBehaviour
     private void TrackPrevPosition()
     {
         Vector2 currentPosition = transform.position;
-        // Vector2 currentVelocity = (currentPosition - this._previousPosition) / Time.fixedDeltaTime;
-        // this._currentAcceleration = (currentVelocity - this._previousVelocity) / Time.fixedDeltaTime;
-        //
-        // Cache for use in next frame
-        // this._previousVelocity = currentVelocity;
         this._previousPosition = currentPosition;
     }
 
-    private void HoldObjects(List<AttractableObject> attractables)
+    private void HoldObjects(HashSet<AttractableObject> attractables)
     {
         foreach (var attractable in attractables)
         {
@@ -92,7 +90,7 @@ public class Attractor : MonoBehaviour
         }
     }
 
-    private void AttractObjects(List<AttractableObject> attractables)
+    private void AttractObjects(HashSet<AttractableObject> attractables)
     {
         foreach (var attractable in attractables)
         {
@@ -119,15 +117,19 @@ public class Attractor : MonoBehaviour
         if(attractable == null || !attractable.IsValid) return;
 
         bool captureAreaisFull = this._caughtObjects.Count >= this.maxCapturedObjects;
+        
         if (!captureAreaisFull && other.IsTouching(this.captureCollider))
         {
-            this._attractedObjects.Remove(attractable);
             this._caughtObjects.Add(attractable);
             attractable.SetStateCaptured();
-        } else if (other.IsTouching(this.attractionCollider))
+        }
+        if (other.IsTouching(this.attractionCollider))
         {
             this._attractedObjects.Add(attractable);
         }
+        
+        // Debug.Log($"Attracted: {this._attractedObjects.Count} Caught: {this._caughtObjects.Count}");
+
     } 
 
     private void OnTriggerExit2D(Collider2D other)
@@ -135,17 +137,19 @@ public class Attractor : MonoBehaviour
         AttractableObject attractable = other.GetComponent<AttractableObject>();
 
         if(attractable == null || !attractable.IsValid) return;
-
-        if (!other.IsTouching(this.captureCollider) && other.IsTouching(this.attractionCollider))
+        
+        if (!other.IsTouching(this.captureCollider))
         {
             this._caughtObjects.Remove(attractable);
             attractable.UndoCapturedState();
-            this._attractedObjects.Add(attractable);
-        } else
+        }
+        
+        if (!other.IsTouching(this.attractionCollider))
         {
-            this._caughtObjects.Remove(attractable);
             this._attractedObjects.Remove(attractable);
         }
+        
+        // Debug.Log($"Attracted: {this._attractedObjects.Count} Caught: {this._caughtObjects.Count}");
     } 
 
     private Vector2 GetAttractionForce(Rigidbody2D rb, float magnitude, Vector2 targetPosition)

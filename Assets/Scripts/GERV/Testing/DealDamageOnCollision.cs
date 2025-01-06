@@ -29,7 +29,7 @@ public class DealDamageOnCollision : MonoBehaviour
             );
 
         // Debugging damage value
-        Debug.Log($"Impulse: {impulse:F2}, Damage: {dmgEvent.IncomingDamage}, Point: {dmgEvent.LocalPosition}, angle: {dmgEvent.LocalAngle}");
+        // Debug.Log($"Impulse: {impulse:F2}, Damage: {dmgEvent.IncomingDamage}, Point: {dmgEvent.LocalPosition}, angle: {dmgEvent.LocalAngle}");
 
         // Deal damage to the other object
         other.Damage(dmgEvent);
