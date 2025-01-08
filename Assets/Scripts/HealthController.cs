@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,8 @@ public class HealthController : MonoBehaviour, IDamageable
     public void Damage(IDamageEvent damageEvent)
     {
         this.Health -= damageEvent.IncomingDamage;
+        
+        Debug.Log($"{nameof(This)} took {damageEvent.IncomingDamage} damage. Remaining: {this.Health}");
 
         // if (this.healthBar)
         // {
