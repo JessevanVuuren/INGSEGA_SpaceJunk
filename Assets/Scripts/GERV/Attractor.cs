@@ -15,10 +15,13 @@ public class Attractor : MonoBehaviour
 
     [Header("Capture Settings")] 
     public Collider2D captureCollider;
-    public float holdingForce = 30f;
-    public float holdingDampeningForce = 60f;
+    public float holdingForce = 2000f;
+    public float holdingDampeningForce = 4000f;
     public uint maxCapturedObjects = 5;
     public float movementCompensationMod = 0.5f; // Modifier for position projection
+    
+    [Header("Release settings")]
+    public float releaseForce = 75f;
 
     [Header("Input Settings")]
     public KeyCode activationKey = KeyCode.Mouse0;
@@ -50,16 +53,20 @@ public class Attractor : MonoBehaviour
     {
         if (!this._setupValid) return;
 
-        if (!Input.GetKey(releaseKey))
+        if (Input.GetKey(releaseKey))
+        {
+            ReleaseObjects(this._caughtObjects);
+        }
+        else
         {
             HoldObjects(this._caughtObjects);
+            
+            if (Input.GetKey(activationKey))
+            {
+                AttractObjects(this._attractedObjects);
+            }
         }
 
-        if (Input.GetKey(activationKey))
-        {
-            AttractObjects(this._attractedObjects);
-        }
-        
         TrackPrevPosition();
     }
 
@@ -109,6 +116,29 @@ public class Attractor : MonoBehaviour
             rb.AddForce(attrVec + dampVec, ForceMode2D.Force);
         }
     }
+    
+    private void ReleaseObjects(HashSet<AttractableObject> attractables)
+    {
+        // Get the backward direction of the Attractor
+        Vector2 backwardDirection = -transform.up;
+
+        foreach (var attractable in attractables)
+        {
+            Rigidbody2D rb = attractable.Rb;
+
+            if (rb == null) continue;
+
+            // Calculate the velocity component along the backward direction
+            Vector2 velocityProjection = Vector2.Dot(rb.linearVelocity, backwardDirection) * backwardDirection;
+
+            // Subtract the backward velocity component to neutralize it
+            rb.linearVelocity -= velocityProjection;
+            
+            // Push objects away
+            rb.AddForce(transform.up * this.releaseForce, ForceMode2D.Force);
+        }
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
