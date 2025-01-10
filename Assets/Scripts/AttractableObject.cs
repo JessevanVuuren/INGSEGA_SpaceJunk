@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class AttractableObject : MonoBehaviour
+public class AttractableObject : MonoBehaviour, ICollectable
 {
     public String captureLayerName = "CapturedObjects";
 
@@ -46,5 +46,12 @@ public class AttractableObject : MonoBehaviour
 
         // Reset the object's color to white
         this._spriteRenderer.color = Color.white;
+    }
+
+    // This is when the object is collected by the mothership.
+    // It's NOT the same as capturing/catching, which simply involves holding the object with the Mass Collector
+    public void Collect()
+    {
+        Destroy(this.gameObject);
     }
 }

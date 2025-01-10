@@ -20,7 +20,7 @@ public class HealthController : MonoBehaviour, IDamageable
     {
         this.Health -= damageEvent.IncomingDamage;
         
-        Debug.Log($"{nameof(This)} took {damageEvent.IncomingDamage} damage. Remaining: {this.Health}");
+        // Debug.Log($"{nameof(This)} took {damageEvent.IncomingDamage} damage. Remaining: {this.Health}");
 
         // if (this.healthBar)
         // {
