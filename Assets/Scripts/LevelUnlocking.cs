@@ -1,20 +1,37 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelUnlocking : MonoBehaviour
 {
-
-    public Button level1;
-    public bool isActive = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Button[] levelButtons; // Assign your buttons in the Inspector
+    public int unlockedLevels = 0; // Number of levels unlocked
+ 
     void Start()
     {
-        this.level1.enabled = isActive;
+        UpdateLevelButtons();
     }
-
-    // Update is called once per frame
-    void Update()
+ 
+    private void UpdateLevelButtons()
     {
-        
+        for (int i = 0; i < this.levelButtons.Length; i++)
+        {
+            String keyName = $"LevelsFinished";
+            
+            int nextLevel = PlayerPrefs.GetInt(keyName, 0);
+            
+            bool isUnlocked = i <= nextLevel;
+            
+            Button button = levelButtons[i];
+            
+            button.interactable = isUnlocked;
+            
+            // // Optional: Update visual state (color or sprite)
+            // var buttonText = button.GetComponentInChildren<Text>();
+            // if (buttonText != null)
+            // {
+            //     buttonText.color = isUnlocked ? Color.white : Color.gray;
+            // }
+        }
     }
 }
