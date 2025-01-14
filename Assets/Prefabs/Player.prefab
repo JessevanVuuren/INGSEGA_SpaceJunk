@@ -111,7 +111,10 @@ MonoBehaviour:
   holdingDampeningForce: 4500
   maxCapturedObjects: 5
   movementCompensationMod: 0.5
+  releaseForce: 5
+  maxReleaseSpeed: 5
   activationKey: 323
+  releaseKey: 324
 --- !u!58 &4947164556924203571
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -388,6 +391,7 @@ GameObject:
   - component: {fileID: 4345305308704205999}
   - component: {fileID: 6941633022260228994}
   - component: {fileID: 5038672165024952869}
+  - component: {fileID: 7195038290802166003}
   m_Layer: 6
   m_Name: GERV_0
   m_TagString: Untagged
@@ -551,7 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79943828ca0787a4bb81e5215a211752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 300
+  Health: 200
 --- !u!114 &6941633022260228994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,3 +587,21 @@ MonoBehaviour:
   accelerationForce: 15
   extraDampeningFactor: 1.3
   haltVelocity: 0.15
+--- !u!114 &7195038290802166003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8652910258488087155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8078a20c7dcd16143a72789cba16bbc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmgCalculator:
+    minImpulse: 0.5
+    damageAtMinImpulse: 5
+    dontDealDamageBelowMinImpulse: 1
+    maxImpulse: 6
+    damageAtMaxImpulse: 200
