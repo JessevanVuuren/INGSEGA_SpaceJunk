@@ -17,4 +17,8 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(0);
     }
+    public void ToLevels()
+    {
+        SceneManager.LoadSceneAsync(2);
+    }
 }
