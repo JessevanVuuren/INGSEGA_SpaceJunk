@@ -21,7 +21,8 @@ public class Attractor : MonoBehaviour
     public float movementCompensationMod = 0.5f; // Modifier for position projection
     
     [Header("Release settings")]
-    public float releaseForce = 75f;
+    public float releaseForce = 5f;
+    public float maxReleaseSpeed = 5f;
 
     [Header("Input Settings")]
     public KeyCode activationKey = KeyCode.Mouse0;
@@ -120,7 +121,7 @@ public class Attractor : MonoBehaviour
     private void ReleaseObjects(HashSet<AttractableObject> attractables)
     {
         // Get the backward direction of the Attractor
-        Vector2 backwardDirection = -transform.up;
+        Vector2 backwardDirection = transform.up;
 
         foreach (var attractable in attractables)
         {
@@ -132,7 +133,9 @@ public class Attractor : MonoBehaviour
             Vector2 velocityProjection = Vector2.Dot(rb.linearVelocity, backwardDirection) * backwardDirection;
 
             // Subtract the backward velocity component to neutralize it
-            rb.linearVelocity -= velocityProjection;
+            rb.linearVelocity = velocityProjection;
+            
+            if (rb.linearVelocity.magnitude > this.maxReleaseSpeed) continue;
             
             // Push objects away
             rb.AddForce(transform.up * this.releaseForce, ForceMode2D.Force);

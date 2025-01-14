@@ -1163,7 +1163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 953900678141617538, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: releaseForce
-      value: 50
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 953900678141617538, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: maxReleaseSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5038672165024952869, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: haltVelocity
