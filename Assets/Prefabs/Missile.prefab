@@ -176,5 +176,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifespan: 5
-  damage: 50
+  damage: 80
   explosionVFX: {fileID: 5909302060578886463, guid: b978a8e85b60d8a4cabe13ad51941459, type: 3}

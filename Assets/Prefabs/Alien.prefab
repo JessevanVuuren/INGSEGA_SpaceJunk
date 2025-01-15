@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79943828ca0787a4bb81e5215a211752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 150
   healthBar: {fileID: 0}
 --- !u!114 &2328458267040515035
 MonoBehaviour:

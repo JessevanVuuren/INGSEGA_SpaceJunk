@@ -4891,6 +4891,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7579322513386849494, guid: 6df5e9fb52ce18043a267b48818e0e74, type: 3}
+      propertyPath: Health
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579322513386849494, guid: 6df5e9fb52ce18043a267b48818e0e74, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1364131904}
@@ -5130,11 +5134,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 953900678141617538, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: releaseForce
-      value: 5
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 953900678141617538, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: attractionForce
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 953900678141617538, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: maxReleaseSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 953900678141617538, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: maxAttractionAngle
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 953900678141617538, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: movementCompensationMod
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2408383759994274697, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: launchForce
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3604343674826213379, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: m_Enabled
