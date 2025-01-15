@@ -10,17 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8349344161134467911}
   - component: {fileID: 7607654891760766075}
-  - component: {fileID: 2328458267040515035}
   - component: {fileID: 9092704404620875729}
   - component: {fileID: 3981172130200019090}
-  - component: {fileID: 6585466693417566331}
-  - component: {fileID: 4005939419167719593}
-  - component: {fileID: 291894673912853217}
   - component: {fileID: 5895613601334536301}
-  - component: {fileID: 8323574689227657496}
-  - component: {fileID: 2338450608946464900}
-  - component: {fileID: 668957811731747250}
-  - component: {fileID: 3211267912030759737}
+  - component: {fileID: 6585466693417566331}
+  - component: {fileID: 2328458267040515035}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Enemy
@@ -98,24 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2328458267040515035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5968548104142653166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306145338f0f1bb45bdf790cd4ab33fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: 2af5a94129ae3b043b97d68e18dfca86, type: 3}
-  dmg: 50
-  speed: 3
-  maxLookRadius: 10.81
-  explosion: {fileID: 5909302060578886463, guid: 6a35ea65c49ab3246ab6cc0ec4e2f528, type: 3}
-  player: {fileID: 0}
 --- !u!50 &9092704404620875729
 Rigidbody2D:
   serializedVersion: 5
@@ -179,70 +155,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1.09
---- !u!114 &6585466693417566331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5968548104142653166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79943828ca0787a4bb81e5215a211752, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
-  healthBar: {fileID: 0}
---- !u!58 &4005939419167719593
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5968548104142653166}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.85
---- !u!114 &291894673912853217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5968548104142653166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79943828ca0787a4bb81e5215a211752, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
-  healthBar: {fileID: 0}
 --- !u!58 &5895613601334536301
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -279,7 +191,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.85
---- !u!114 &8323574689227657496
+--- !u!114 &6585466693417566331
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,43 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   healthBar: {fileID: 0}
---- !u!58 &2338450608946464900
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5968548104142653166}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.85
---- !u!114 &668957811731747250
+--- !u!114 &2328458267040515035
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -338,44 +214,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5968548104142653166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79943828ca0787a4bb81e5215a211752, type: 3}
+  m_Script: {fileID: 11500000, guid: 306145338f0f1bb45bdf790cd4ab33fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
-  healthBar: {fileID: 0}
---- !u!58 &3211267912030759737
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5968548104142653166}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.85
+  texture: {fileID: 2800000, guid: 2af5a94129ae3b043b97d68e18dfca86, type: 3}
+  dmg: 50
+  speed: 3
+  maxLookRadius: 10.81
+  explosion: {fileID: 5909302060578886463, guid: 6a35ea65c49ab3246ab6cc0ec4e2f528, type: 3}
+  player: {fileID: 0}
