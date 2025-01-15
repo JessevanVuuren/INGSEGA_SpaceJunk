@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 1559751697618349776}
   - component: {fileID: -9122185108235826153}
   - component: {fileID: 5047080076209201639}
+  - component: {fileID: 9083653604867955749}
   m_Layer: 0
-  m_Name: TestDebris
+  m_Name: SpaceDebris
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.46, y: 0.06, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd427b106c4115f4ea1d1c10a4c91f55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -153,7 +154,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.35
 --- !u!114 &-9122185108235826153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,3 +186,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   captureLayerName: CapturedObjects
+--- !u!114 &9083653604867955749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4132418613876808557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a94d457e33cfe842b7c156bcd8310d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 8d6eaaefbef73894d96ae55f7da066ec, type: 3}
+  - {fileID: 21300000, guid: dd427b106c4115f4ea1d1c10a4c91f55, type: 3}
+  - {fileID: 21300000, guid: 57d4fd0b0aa675a4b867404cf0888d22, type: 3}
+  - {fileID: 21300000, guid: 1ac351cd14b08e04db823ec9346d42f8, type: 3}
+  - {fileID: 21300000, guid: f0e169203ece9a743b398a34d45a0269, type: 3}
+  - {fileID: 21300000, guid: e1352270d3e737942b035266f61965d4, type: 3}
