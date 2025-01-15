@@ -169,9 +169,9 @@ MonoBehaviour:
   dmgCalculator:
     minImpulse: 0.1
     damageAtMinImpulse: 5
-    dontDealDamageBelowMinImpulse: 0
-    maxImpulse: 80
-    damageAtMaxImpulse: 0
+    dontDealDamageBelowMinImpulse: 1
+    maxImpulse: 5.5
+    damageAtMaxImpulse: 80
 --- !u!114 &5047080076209201639
 MonoBehaviour:
   m_ObjectHideFlags: 0
