@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
@@ -7,6 +8,7 @@ public class Projectile : MonoBehaviour
     [Tooltip("The lifespan of the projectile in seconds.")]
     public float lifespan = 5f; // Time before self-destruction
     public float damage = 50f;
+    [CanBeNull] public GameObject explosionVFX;
 
     private void Start()
     {
@@ -24,7 +26,7 @@ public class Projectile : MonoBehaviour
         }
         
         // Destroy the projectile upon collision
-        Destroy(gameObject);
+        this.Explode();
     }
 
     private void DealDamageTo(IDamageable damageable)
@@ -32,5 +34,15 @@ public class Projectile : MonoBehaviour
         IDamageEvent damageEvent = new MissileDamageEvent(this.damage);
         
         damageable.Damage(damageEvent);
+    }
+
+    // Consider encapsulating into separate module 
+    private void Explode()
+    {
+        if (this.explosionVFX != null)
+        {
+            Instantiate(this.explosionVFX, transform.position, Quaternion.identity);
+        }
+        Destroy(gameObject);
     }
 }
