@@ -4,7 +4,10 @@ using UnityEngine;
 public class Collector : MonoBehaviour
 {
     public Collider2D CollectionCollider;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    [Tooltip("This is just a temporary value for testing purposes.")]
+    public int scorePerCollectedDebris = 10;
+    
     void Start()
     {
         bool isValid = !(this.CollectionCollider == null || !this.CollectionCollider.isTrigger);
@@ -21,9 +24,15 @@ public class Collector : MonoBehaviour
         ICollectable collectable = other.GetComponent<ICollectable>();
 
         if (collectable == null) return;
-        
-        Debug.Log($"Collected! {nameof(collectable)}");
+
+        this.Collect(collectable);
+    }
+
+    private void Collect(ICollectable collectable)
+    {
+        // Debug.Log($"Collected! {nameof(collectable)}");
         
         collectable.Collect();
+        ScoreManager.Instance.IncrementScore(this.scorePerCollectedDebris);
     }
 }
