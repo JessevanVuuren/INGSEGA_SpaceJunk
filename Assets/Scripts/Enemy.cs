@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Linq;
 using UnityEditor;
+using Unity.VisualScripting;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     public float speed = 0;
+    public float maxLookRadius = 5;
     public GameObject explosion;
 
     private Vector3 playerPos;
@@ -42,11 +44,15 @@ public class Enemy : MonoBehaviour
     void FixedUpdate()
     {
 
-        rb.MovePosition(Vector3.MoveTowards(transform.position, playerPos, speed * Time.deltaTime));
+        if (Vector3.Distance(transform.position, playerPos) < maxLookRadius)
+        {
 
-        Vector3 direction = playerPos - transform.position;
-        float angle = Mathf.Atan2(direction.x, direction.y);
-        rb.MoveRotation(-(angle * Mathf.Rad2Deg));
+            rb.MovePosition(Vector3.MoveTowards(transform.position, playerPos, speed * Time.deltaTime));
+
+            Vector3 direction = playerPos - transform.position;
+            float angle = Mathf.Atan2(direction.x, direction.y);
+            rb.MoveRotation(-(angle * Mathf.Rad2Deg));
+        }
     }
 
     public void Explode()
@@ -65,5 +71,11 @@ public class Enemy : MonoBehaviour
         other.Damage(dmgEvent);
 
         Explode();
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, maxLookRadius);
     }
 }

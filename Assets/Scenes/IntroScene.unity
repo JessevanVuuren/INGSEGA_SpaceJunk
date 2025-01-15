@@ -549,8 +549,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68.892, y: 97}
-  m_SizeDelta: {x: 695.4163, y: 227.034}
+  m_AnchoredPosition: {x: 12, y: 150}
+  m_SizeDelta: {x: 1282.0327, y: 418.5479}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122866213
 MonoBehaviour:
@@ -622,10 +622,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 770723765}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030518, y: -0.25984}
-  m_SizeDelta: {x: 833.2, y: 435.12}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1142791975
 MonoBehaviour:
@@ -699,8 +699,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34, y: 133}
-  m_SizeDelta: {x: 530.9647, y: 123.5819}
+  m_AnchoredPosition: {x: -29.7335, y: 212.13}
+  m_SizeDelta: {x: 1039.4978, y: 223.3218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1304350146
 MonoBehaviour:
@@ -723,11 +723,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "In the vast expanse of the cosmos, where stars shimmer and galaxies collide,
-    a problem looms\u2014space junk.In the vast expanse of the cosmos, where stars
-    shimmer and galaxies collide, a problem looms\u2014space junk. Decades of exploration
-    and interstellar travel have left behind a trail of debris, threatening the safety
-    of ships, satellites, and even entire planets. It's chaos up there, and someone
-    needs to clean it up.\r\n\r\nThat someone is you, Bas."
+    a problem looms\u2014space junk. Decades of exploration and interstellar travel
+    have left behind a trail of debris, threatening the safety of ships, satellites,
+    and even entire planets. It's chaos up there, and someone needs to clean it up.\r\n\r\nThat
+    someone is you, Bas."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -754,8 +753,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 28.6
+  m_fontSizeBase: 28.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -992,8 +991,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030518, y: 0.0001502}
-  m_SizeDelta: {x: 833.2, y: 434.6}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1478, y: 831}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1982749704
 MonoBehaviour:
@@ -1041,12 +1040,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1412601461}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: ToLevels
-        m_Mode: 1
+        m_MethodName: ToLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
