@@ -865,6 +865,10 @@ PrefabInstance:
       propertyPath: maxReleaseSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3604343674826213379, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5038672165024952869, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: haltVelocity
       value: 1
