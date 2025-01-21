@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.TerrainTools;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -110,7 +111,7 @@ public class Attractor : MonoBehaviour
             float angle = Vector2.Angle(transform.up, directionToTarget);
 
             if (angle > maxAttractionAngle) continue;
-
+            attractable.isManipulated = true;
             Vector2 attrVec = GetAttractionForce(rb, this.attractionForce, transform.position);
             Vector2 dampVec = GetDampeningForce(rb, attrVec.normalized, this.dampeningForce);
 

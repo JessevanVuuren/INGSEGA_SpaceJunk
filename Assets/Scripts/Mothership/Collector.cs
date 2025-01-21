@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Collector : MonoBehaviour
@@ -6,7 +5,7 @@ public class Collector : MonoBehaviour
     public Collider2D CollectionCollider;
 
     [Tooltip("This is just a temporary value for testing purposes.")]
-    public int scorePerCollectedDebris = 10;
+    public int scorePerCollectedDebris = 1;
     
     void Start()
     {
