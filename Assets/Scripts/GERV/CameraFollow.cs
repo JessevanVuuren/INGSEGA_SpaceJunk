@@ -44,10 +44,9 @@ public class CameraFollow : MonoBehaviour
         transform.position = new Vector3(newX, newY, newZ);
 
         // Conditionally update rotation
-        if (matchSubjectRotation)
-        {
-            // Match the subject's rotation exactly
-            transform.rotation = subject.rotation;
-        }
+        if (!matchSubjectRotation) return;
+        
+        // Match the subject's rotation exactly
+        transform.rotation = subject.rotation;
     }
 }

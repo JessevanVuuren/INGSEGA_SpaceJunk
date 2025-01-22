@@ -129,6 +129,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6979796509939541560, guid: c81493fd3c4591641bc78dc7141ac75d, type: 3}
   m_PrefabInstance: {fileID: 1642970132}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &109424832 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9056156241159145491, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+  m_PrefabInstance: {fileID: 9214477474723389968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &140857621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6979796509939541560, guid: c81493fd3c4591641bc78dc7141ac75d, type: 3}
@@ -2943,6 +2948,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6979796509939541560, guid: c81493fd3c4591641bc78dc7141ac75d, type: 3}
   m_PrefabInstance: {fileID: 1716833648}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2039325011
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2888612242784311669, guid: b0ad73d1d2593ae46923bef8e6536397, type: 3}
+      propertyPath: m_Name
+      value: CinemachineCameraSettings
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591132463047792468, guid: b0ad73d1d2593ae46923bef8e6536397, type: 3}
+      propertyPath: Target.TrackingTarget
+      value: 
+      objectReference: {fileID: 109424832}
+    - target: {fileID: 4756254072761742846, guid: b0ad73d1d2593ae46923bef8e6536397, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756254072761742846, guid: b0ad73d1d2593ae46923bef8e6536397, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756254072761742846, guid: b0ad73d1d2593ae46923bef8e6536397, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756254072761742846, guid: b0ad73d1d2593ae46923bef8e6536397, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756254072761742846, guid: b0ad73d1d2593ae46923bef8e6536397, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756254072761742846, guid: b0ad73d1d2593ae46923bef8e6536397, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756254072761742846, guid: b0ad73d1d2593ae46923bef8e6536397, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756254072761742846, guid: b0ad73d1d2593ae46923bef8e6536397, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756254072761742846, guid: b0ad73d1d2593ae46923bef8e6536397, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756254072761742846, guid: b0ad73d1d2593ae46923bef8e6536397, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0ad73d1d2593ae46923bef8e6536397, type: 3}
 --- !u!1001 &2054815785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3496,6 +3562,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7948878610743701048, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948878610743701048, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8652910258488087155, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: m_TagString
       value: Player
@@ -3522,3 +3596,4 @@ SceneRoots:
   - {fileID: 1891574722}
   - {fileID: 957224755}
   - {fileID: 564364455}
+  - {fileID: 2039325011}
