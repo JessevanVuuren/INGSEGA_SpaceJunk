@@ -3464,6 +3464,10 @@ PrefabInstance:
       propertyPath: launchForce
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 3199376045536689083, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e9e9f9ef6000a0d449fe5228d5ba45a9, type: 3}
     - target: {fileID: 3604343674826213379, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3475,6 +3479,14 @@ PrefabInstance:
     - target: {fileID: 5038672165024952869, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: haltVelocity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540539562165585725, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7636065062218683851, guid: dc96249bbf1b4c04bb2b71348f8648bb, type: 3}
+    - target: {fileID: 5540539562165585725, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: m_SortingOrder
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 5987313633276594731, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: m_Name

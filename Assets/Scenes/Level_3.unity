@@ -11147,6 +11147,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3199376045536689083, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 89bca327dbe7e6540bb158ab20a8bcc3, type: 3}
     - target: {fileID: 3970407781233753714, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: alien
       value: 
@@ -11159,6 +11163,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1031310655}
+    - target: {fileID: 5540539562165585725, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1568175666702191629, guid: 653934cd601d25e43bcb4ba86f3c4953, type: 3}
     - target: {fileID: 5987313633276594731, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: m_Name
       value: Player
