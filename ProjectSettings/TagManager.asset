@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Garbage
+  - Mothership
   layers:
   - Default
   - TransparentFX

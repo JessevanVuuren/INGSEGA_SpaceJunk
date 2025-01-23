@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 4341389027611048180}
   - component: {fileID: 5466887414676073978}
   - component: {fileID: 5412921922083127552}
+  - component: {fileID: 5762161945459504916}
   m_Layer: 0
   m_Name: Mothership
-  m_TagString: Untagged
+  m_TagString: Mothership
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,7 +255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79943828ca0787a4bb81e5215a211752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 1000
+  Health: 800
+  healthBar: {fileID: 0}
 --- !u!61 &3696292116738977794
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -360,6 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollectionCollider: {fileID: 4341389027611048180}
+  scorePerCollectedDebris: 1
 --- !u!114 &5412921922083127552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,3 +381,16 @@ MonoBehaviour:
     dontDealDamageBelowMinImpulse: 1
     maxImpulse: 5
     damageAtMaxImpulse: 100
+--- !u!114 &5762161945459504916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2776299683095873979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7616398e769b448a20f845f3373eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackableObjectCollectionManager: {fileID: 0}

@@ -109,6 +109,11 @@ public class AttractableObject : MonoBehaviour, ICollectable
         Destroy(this.gameObject);
     }
 
+    public string GetTag()
+    {
+        return this.gameObject.tag;
+    }
+
     void FixedUpdate()
     {
         if (!isManipulated)

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Collector : MonoBehaviour
@@ -31,7 +32,9 @@ public class Collector : MonoBehaviour
     {
         // Debug.Log($"Collected! {nameof(collectable)}");
         
+        String collectableTag = collectable.GetTag();
+        
         collectable.Collect();
-        ScoreManager.Instance.IncrementScore(this.scorePerCollectedDebris);
+        ScoreManager.Instance.IncrementScore(collectableTag, this.scorePerCollectedDebris);
     }
 }

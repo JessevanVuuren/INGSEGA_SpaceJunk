@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: -9122185108235826153}
   - component: {fileID: 5047080076209201639}
   - component: {fileID: 9083653604867955749}
+  - component: {fileID: 3386860047110987668}
   m_Layer: 0
   m_Name: SpaceDebris
-  m_TagString: Untagged
+  m_TagString: Garbage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,8 +187,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   captureLayerName: CapturedObjects
+  rotateSpeedSlow: -1
+  rotateSpeedFast: 1
   randomJitter: 0
   jitterRange: 0
+  jitterSpeed: 0.1
+  orbitMotherShip: 0
+  orbitSpeedSlow: 0
+  orbitSpeedFast: 0
+  attackMotherShip: 0
+  attackSpeedSlow: 0
+  attackSpeedFast: 0
+  explosion: {fileID: 0}
+  isManipulated: 0
 --- !u!114 &9083653604867955749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,3 +219,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1ac351cd14b08e04db823ec9346d42f8, type: 3}
   - {fileID: 21300000, guid: f0e169203ece9a743b398a34d45a0269, type: 3}
   - {fileID: 21300000, guid: e1352270d3e737942b035266f61965d4, type: 3}
+--- !u!114 &3386860047110987668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4132418613876808557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7616398e769b448a20f845f3373eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
