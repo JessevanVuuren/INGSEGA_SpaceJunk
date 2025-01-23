@@ -11288,6 +11288,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8096570672149247116, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: radarIndicators.Array.data[1].minDistance
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -6,10 +6,13 @@ using UnityEngine;
 
 public class TrackableObjectCollectionManager : MonoBehaviour
 {
+    public static TrackableObjectCollectionManager Instance { get; private set; }
+    
     [SerializeField] private Transform tracker; // The reference object
     public float updateInterval = 0.25f; // Interval in seconds
-    
-    public static TrackableObjectCollectionManager Instance { get; private set; }
+    [Tooltip("Set this to a value greater than 0 if you think objects that are too close aren't worth considering.\n" +
+             "Useful for tracking on the HudRadar.")]
+    public float minDistanceForNearestObject = 0f;
     
     public Dictionary<string, HashSet<TrackableObject>> _trackableCollections { get; private set; } = new Dictionary<string, HashSet<TrackableObject>>();
     private Dictionary<string, TrackableObject> _nearestTrackableCache = new Dictionary<string, TrackableObject>();
@@ -79,19 +82,23 @@ public class TrackableObjectCollectionManager : MonoBehaviour
 
                 foreach (TrackableObject trackable in trackables)
                 {
-                    // if (trackableObject == null) continue; // Skip null objects
+                    // if (trackable == null) continue; // Skip null objects
                     
                     float distance = Vector2.Distance(tracker.position, trackable.transform.position);
 
-                    if (distance >= shortestDistance) continue;
+                    if (distance >= shortestDistance || distance < minDistanceForNearestObject) continue;
                     
                     shortestDistance = distance;
                     nearestTrackableObject = trackable;
                 }
 
+                // if(nearestTrackableObject == null) continue;
+                
                 // Update the cache
                 _nearestTrackableCache[collectionName] = nearestTrackableObject;
             }
+            
+            // Debug.Log($"{_nearestTrackableCache.Count} {this._nearestTrackableCache}");
 
             // Wait for the next update interval
             yield return new WaitForSeconds(updateInterval);
