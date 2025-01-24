@@ -550,7 +550,7 @@ Transform:
   m_GameObject: {fileID: 6211270702990144020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.28, y: -1.75, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -792,6 +792,7 @@ GameObject:
   - component: {fileID: 5038672165024952869}
   - component: {fileID: 7195038290802166003}
   - component: {fileID: 2408383759994274697}
+  - component: {fileID: 206667590068668013}
   m_Layer: 6
   m_Name: GERV_0
   m_TagString: Player
@@ -1025,6 +1026,19 @@ MonoBehaviour:
   cooldownDuration: 1
   bufferWindow: 0.25
   fireKey: 32
+--- !u!114 &206667590068668013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8652910258488087155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23a60b15710a04429d8d213ef227a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 0}
 --- !u!1001 &5274193699253619209
 PrefabInstance:
   m_ObjectHideFlags: 0

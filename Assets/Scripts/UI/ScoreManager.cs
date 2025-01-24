@@ -10,31 +10,19 @@ using UnityEngine.Serialization;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
-    // public TextMeshProUGUI scoreText;
-    // public TextMeshProUGUI totalText;
-    // public TextMeshProUGUI collectAmount;
-    // public int amountNeedToCollect;
-    public int levelInt;
-
-    [SerializeField] public Objective[] objectives = Array.Empty<Objective>();
- 
-    // private int _score = 0;
-    // private int totalAmount;
+    [SerializeField] private int levelInt;
+    [SerializeField] private GameObject winMenu;
+    [SerializeField] private Objective[] objectives = Array.Empty<Objective>();
 
     void Start()
     {
         ScoreManager.Instance = this;
-        // totalAmount = GameObject.FindGameObjectsWithTag("Garbage").Length;
         
         UpdateText();
     }
 
     private void UpdateText()
     {
-        // scoreText.text = _score.ToString();
-        // totalText.text = totalAmount.ToString();
-        // collectAmount.text = amountNeedToCollect.ToString();
-
         foreach (var objective in this.objectives)
         {
             String newScore = $"{objective.amount.ToString()}/{objective.amountRequired.ToString()}";
@@ -44,9 +32,6 @@ public class ScoreManager : MonoBehaviour
 
     public void IncrementScore(String collectableTag, int amount)
     {
-        // _score += amount;
-        // totalAmount -= amount;
-        
         IEnumerable<Objective> objectives = this.objectives.Where(objective => objective.objectTag == collectableTag);
         
         if (objectives.Count() == 0) return;
@@ -67,7 +52,11 @@ public class ScoreManager : MonoBehaviour
         
         // If all objectives are met, go to next level
         PlayerPrefs.SetInt("LevelsFinished", levelInt);
-        SceneManager.LoadScene(2);
+        // SceneManager.LoadScene(2);
+        
+        if (this.winMenu == null) return;
+        
+        this.winMenu.SetActive(true);
     }
 
     [System.Serializable]

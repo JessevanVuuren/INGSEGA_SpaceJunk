@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5466887414676073978}
   - component: {fileID: 5412921922083127552}
   - component: {fileID: 5762161945459504916}
+  - component: {fileID: 994325266923246770}
   m_Layer: 0
   m_Name: Mothership
   m_TagString: Mothership
@@ -394,3 +395,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackableObjectCollectionManager: {fileID: 0}
+--- !u!114 &994325266923246770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2776299683095873979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23a60b15710a04429d8d213ef227a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 0}
