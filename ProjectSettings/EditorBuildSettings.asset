@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Briefings/Briefinglvl1.unity
     guid: 30fb6eacf0019f5499bad99caa0b0489
+  - enabled: 1
+    path: Assets/Scenes/Level_5.unity
+    guid: eae308c6da50c694faf5bec4d7776894
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
