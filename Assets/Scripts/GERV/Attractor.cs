@@ -111,7 +111,10 @@ public class Attractor : MonoBehaviour
             float angle = Vector2.Angle(transform.up, directionToTarget);
 
             if (angle > maxAttractionAngle) continue;
+            
+            // Attractables which have to be manipulated, may have to be treated differently.
             attractable.isManipulated = true;
+            
             Vector2 attrVec = GetAttractionForce(rb, this.attractionForce, transform.position);
             Vector2 dampVec = GetDampeningForce(rb, attrVec.normalized, this.dampeningForce);
 
@@ -156,6 +159,7 @@ public class Attractor : MonoBehaviour
         {
             this._caughtObjects.Add(attractable);
             attractable.SetStateCaptured();
+            attractable.isManipulated = true;
         }
         if (other.IsTouching(this.attractionCollider))
         {

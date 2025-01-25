@@ -3396,6 +3396,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 290622862158883187, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: orthographic size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 290622862158883187, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -3452,6 +3456,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1031310655}
     - target: {fileID: 5038672165024952869, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038672165024952869, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: haltVelocity
       value: 1
       objectReference: {fileID: 0}
@@ -3482,6 +3490,14 @@ PrefabInstance:
     - target: {fileID: 7948878610743701048, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096570672149247116, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: centerOffset.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096570672149247116, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: centerOffset.y
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 8652910258488087155, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: m_TagString
