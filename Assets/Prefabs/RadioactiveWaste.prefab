@@ -4955,6 +4955,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   captureLayerName: CapturedObjects
+  damageAtCollection: 45
+  rotateSpeedSlow: -1
+  rotateSpeedFast: 1
+  randomJitter: 0
+  jitterRange: 0
+  jitterSpeed: 0.1
+  orbitMotherShip: 0
+  orbitSpeedSlow: 0
+  orbitSpeedFast: 0
+  attackMotherShip: 0
+  attackSpeedSlow: 0
+  attackSpeedFast: 0
+  explosion: {fileID: 0}
+  isManipulated: 0
 --- !u!61 &3622318849656181375
 BoxCollider2D:
   m_ObjectHideFlags: 0

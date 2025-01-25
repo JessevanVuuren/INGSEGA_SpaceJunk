@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollectionCollider: {fileID: 4341389027611048180}
+  HealthController: {fileID: 7579322513386849494}
   scorePerCollectedDebris: 1
 --- !u!114 &5412921922083127552
 MonoBehaviour:

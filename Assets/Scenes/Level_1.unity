@@ -891,6 +891,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2820617597941570043, guid: eb43e2a12327609458af64a2d93efe7b, type: 3}
+      propertyPath: damageAtCollection
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5427744881796978959, guid: eb43e2a12327609458af64a2d93efe7b, type: 3}
       propertyPath: m_Name
       value: RadioactiveWaste (2)

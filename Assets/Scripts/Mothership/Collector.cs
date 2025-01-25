@@ -4,13 +4,14 @@ using UnityEngine;
 public class Collector : MonoBehaviour
 {
     public Collider2D CollectionCollider;
+    public HealthController HealthController;
 
     [Tooltip("This is just a temporary value for testing purposes.")]
     public int scorePerCollectedDebris = 1;
     
     void Start()
     {
-        bool isValid = !(this.CollectionCollider == null || !this.CollectionCollider.isTrigger);
+        bool isValid = !(this.CollectionCollider == null || !this.CollectionCollider.isTrigger || this.HealthController == null);
 
         if (isValid) return;
 
@@ -33,7 +34,11 @@ public class Collector : MonoBehaviour
         // Debug.Log($"Collected! {nameof(collectable)}");
         
         String collectableTag = collectable.GetTag();
-        
+        IDamageEvent damage = collectable.GetDamage();
+        if (damage.IncomingDamage > 0f)
+        {
+            this.HealthController.Damage(damage);
+        }
         collectable.Collect();
         ScoreManager.Instance.IncrementScore(collectableTag, this.scorePerCollectedDebris);
     }

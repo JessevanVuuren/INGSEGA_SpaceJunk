@@ -7,4 +7,6 @@ public interface ICollectable
     public void Collect();
     
     public String GetTag();
+    
+    public IDamageEvent GetDamage();
 }

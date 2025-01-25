@@ -4,10 +4,7 @@ using UnityEngine;
 public class AttractableObject : MonoBehaviour, ICollectable
 {
     public String captureLayerName = "CapturedObjects";
-
-    public bool IsValid { get; private set; }
-    public bool IsCaptured { get; private set; }
-    public Rigidbody2D Rb { get; private set; }
+    public float damageAtCollection = 0;
 
     [Header("Random Rotate speed")]
     public float rotateSpeedSlow = -1;
@@ -48,6 +45,9 @@ public class AttractableObject : MonoBehaviour, ICollectable
     private int _originalLayer;
     private Vector3 motherShip = new(0, 0, 0);
 
+    public bool IsValid { get; private set; }
+    public bool IsCaptured { get; private set; }
+    public Rigidbody2D Rb { get; private set; }
 
     void Start()
     {
@@ -112,6 +112,11 @@ public class AttractableObject : MonoBehaviour, ICollectable
     public string GetTag()
     {
         return this.gameObject.tag;
+    }
+
+    public IDamageEvent GetDamage()
+    {
+        return new RadioactiveDamageEvent(this.damageAtCollection);
     }
 
     void FixedUpdate()
@@ -188,5 +193,17 @@ public class AttractableObject : MonoBehaviour, ICollectable
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+    }
+    
+    public class RadioactiveDamageEvent : IDamageEvent
+    {
+        public RadioactiveDamageEvent(float damage)
+        {
+            this.IncomingDamage = damage;
+        }
+
+        public float IncomingDamage { get; }
+        public Vector2? LocalAngle { get; }
+        public Vector2? LocalPosition { get; }
     }
 }
