@@ -12,6 +12,10 @@ public class ShipMovement : MonoBehaviour
     [Tooltip("Ship velocity is set to zero once it's magnitude reaches below this value. " +
              "Prevents jittery 'ghost movement' standing still.")]
     public float haltVelocity = 0.15f;
+    
+    [Tooltip("Ship does not accelerate above this speed, " +
+             "but could still reach higher velocities when pushed by something.")]
+    public float maxSpeed = float.MaxValue;
 
     private Rigidbody2D rb;
 
@@ -38,6 +42,11 @@ public class ShipMovement : MonoBehaviour
         
         // Apply increase (or decrease) dampening force if needed
         forceDirection += dampeningDirection * (extraDampeningFactor - 1f);
+
+        if (this.rb.linearVelocity.magnitude > this.maxSpeed)
+        {
+            forceDirection -= this.rb.linearVelocity.normalized;
+        }
         
         // Apply force in the desired direction
         rb.AddForce(forceDirection * accelerationForce, ForceMode2D.Force);

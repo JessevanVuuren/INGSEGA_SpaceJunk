@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d1a1ac8-c9bb-4a6a-b06e-cab2027aa808" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelsMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelsMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LevelUnlocking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LevelUnlocking.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/CinemachineCameraSettings.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/CinemachineCameraSettings.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GERV/ShipMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GERV/ShipMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/radioactive-debris-damage",
+    "git-widget-placeholder": "robert/latest-changes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
