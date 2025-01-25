@@ -8,6 +8,7 @@ public class HealthController : MonoBehaviour, IDamageable
 {
     public float Health = 100f;
     [CanBeNull] public Slider healthBar;
+    public bool isBoss = false;
     public bool followTransform;
     public Vector3 offset;
     // public GameObject onDestructionEffect;
@@ -44,7 +45,6 @@ public class HealthController : MonoBehaviour, IDamageable
     private void DestructSelf()
     {
         // Instantiate(onDestructionEffect, transform.position, transform.rotation);
-        
-        Destroy(gameObject);
+        if (!isBoss) Destroy(gameObject);
     }
 }
