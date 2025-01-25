@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6715776048358869972}
   - component: {fileID: 4636461276415708050}
   m_Layer: 6
-  m_Name: SpaceDebrisAtackRandomShip
+  m_Name: SpaceDebrisAtackSpaceShip
   m_TagString: Garbage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   captureLayerName: CapturedObjects
+  damageAtCollection: 0
   rotateSpeedSlow: -1
   rotateSpeedFast: 1
   randomJitter: 0
@@ -197,7 +198,7 @@ MonoBehaviour:
   orbitSpeedFast: 0
   attackMotherShip: 1
   attackPlayerShip: 1
-  attackRandomShip: 1
+  attackRandomShip: 0
   attackSpeedSlow: 6
   attackSpeedFast: 10
   explosion: {fileID: 5909302060578886463, guid: 6a35ea65c49ab3246ab6cc0ec4e2f528, type: 3}

@@ -711,6 +711,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 429552284569221629, guid: 748fd7a304286b44a969ca1b2ac91270, type: 3}
+      propertyPath: alienSpawnTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 429552284569221629, guid: 748fd7a304286b44a969ca1b2ac91270, type: 3}
+      propertyPath: waistSpawnTime
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1145944531235378270, guid: 748fd7a304286b44a969ca1b2ac91270, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.835257

@@ -228,9 +228,10 @@ MonoBehaviour:
   explosion: {fileID: 5909302060578886463, guid: 6a35ea65c49ab3246ab6cc0ec4e2f528, type: 3}
   isShoot: 1
   timeBetweenShoot: 2
+  shootRange: 5
   missilePrefab: {fileID: 3803505509358969184, guid: 425581c686acd574fa9d3ef531a58df0, type: 3}
   launchPoint: {fileID: 2549126628697465924}
-  launchForce: 10
+  launchForce: 7
   player: {fileID: 0}
 --- !u!1 &5726288900512080805
 GameObject:
