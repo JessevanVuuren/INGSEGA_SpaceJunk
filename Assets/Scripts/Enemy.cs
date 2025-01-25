@@ -5,26 +5,23 @@ using UnityEditor;
 public class Enemy : MonoBehaviour
 {
 
-    public Texture2D texture;
     public float dmg = 50;
-    private Sprite[] sprites;
-    private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     public float speed = 0;
     public float maxLookRadius = 5;
     public GameObject explosion;
-
+    public bool isShoot = false;
+    public float timeBetweenShoot = 5;
+    public GameObject missilePrefab;
+    public Transform launchPoint;
+    public float launchForce = 10f;
+    private float timing = 0;
     private Vector3 playerPos;
     public GameObject player;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
-        string spriteSheet = AssetDatabase.GetAssetPath(texture);
-        sprites = AssetDatabase.LoadAllAssetsAtPath(spriteSheet).OfType<Sprite>().ToArray();
-        spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length - 1)];
     }
 
     void Update()
@@ -43,7 +40,7 @@ public class Enemy : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (Vector3.Distance(transform.position, playerPos) < maxLookRadius)
+        if (player != null && Vector3.Distance(transform.position, playerPos) < maxLookRadius)
         {
 
             rb.MovePosition(Vector3.MoveTowards(transform.position, playerPos, speed * Time.deltaTime));
@@ -51,6 +48,24 @@ public class Enemy : MonoBehaviour
             Vector3 direction = playerPos - transform.position;
             float angle = Mathf.Atan2(direction.x, direction.y);
             rb.MoveRotation(-(angle * Mathf.Rad2Deg));
+
+            
+            if (isShoot && Time.time > timing)
+            {
+                Shoot();
+                timing = timeBetweenShoot + Time.time;
+            }
+        }
+    }
+
+    public void Shoot()
+    {
+        GameObject missile = Instantiate(missilePrefab, launchPoint.position, launchPoint.rotation);
+        Rigidbody2D missileRb = missile.GetComponent<Rigidbody2D>();
+
+        if (missileRb != null)
+        {
+            missileRb.linearVelocity = launchPoint.up * launchForce;
         }
     }
 

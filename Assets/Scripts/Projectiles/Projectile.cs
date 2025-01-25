@@ -19,12 +19,26 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-        
-        if(damageable != null)
+
+        if (damageable != null)
         {
             this.DealDamageTo(damageable);
         }
-        
+
+        // Destroy the projectile upon collision
+        this.Explode();
+    }
+
+    private void OnTriggerCollision2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+
+        if (damageable != null)
+        {
+            this.DealDamageTo(damageable);
+        }
+
         // Destroy the projectile upon collision
         this.Explode();
     }
@@ -32,7 +46,7 @@ public class Projectile : MonoBehaviour
     private void DealDamageTo(IDamageable damageable)
     {
         IDamageEvent damageEvent = new MissileDamageEvent(this.damage);
-        
+
         damageable.Damage(damageEvent);
     }
 

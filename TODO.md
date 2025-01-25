@@ -1,3 +1,5 @@
+# Polishing
+  - Briefing UI is unclear: Play and Level Selection are a bit vague
 # bugs
 ## General
   - Missiles don't inherit GERV's velocity at launch, so they trail the ship when it goes quickyl

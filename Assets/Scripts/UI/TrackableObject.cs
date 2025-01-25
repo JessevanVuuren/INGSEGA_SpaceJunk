@@ -13,7 +13,7 @@
 
             if (collectionManager == null)
             {
-                Debug.LogError("TrackableObjectCollectionManager is null");
+                // Debug.LogError("TrackableObjectCollectionManager is null");
 
                 return;
             };
