@@ -30,13 +30,18 @@ public class AttractableObject : MonoBehaviour, ICollectable
 
 
     [Header("Attack mother ship")]
+
     public bool attackMotherShip;
+    public bool attackPlayerShip;
+    public bool attackRandomShip;
     public float attackSpeedSlow;
     public float attackSpeedFast;
     public GameObject explosion;
     private float actualAttack;
 
     private Vector3 motherShipDirection;
+    private Vector3 spaceShipDirection;
+    private Vector3 randomShipDirection;
 
     public bool isManipulated = false;
 
@@ -44,6 +49,8 @@ public class AttractableObject : MonoBehaviour, ICollectable
     private int _captureLayer;
     private int _originalLayer;
     private Vector3 motherShip = new(0, 0, 0);
+    private Vector3 spaceShip = new(0, 0, 0);
+    private Vector3 randomShip = new(0, 0, 0);
 
     public bool IsValid { get; private set; }
     public bool IsCaptured { get; private set; }
@@ -60,6 +67,21 @@ public class AttractableObject : MonoBehaviour, ICollectable
         {
             motherShip = GameObject.Find("Mothership").transform.position;
         }
+        if (GameObject.Find("Player"))
+        {
+            spaceShip = GameObject.FindWithTag("Player").transform.position;
+        }
+        if (attackRandomShip) {
+            float angle = UnityEngine.Random.Range(0, 2 * Mathf.PI);
+            float x = Mathf.Cos(angle);
+            float y = Mathf.Sin(angle);
+
+            randomShip = new Vector3(x, y, 0);
+        }
+
+        if (attackPlayerShip) {
+            Destroy(this.gameObject, 10);
+        }
 
         rotateSpeed = UnityEngine.Random.Range(rotateSpeedSlow, rotateSpeedFast);
         actualSpeed = UnityEngine.Random.Range(orbitSpeedSlow, orbitSpeedFast);
@@ -68,7 +90,10 @@ public class AttractableObject : MonoBehaviour, ICollectable
         distanceFromOrigin = Vector2.Distance(transform.position, motherShip);
         Vector3 offsetOrigin = transform.position - motherShip;
         angleFromOrigin = Mathf.Atan2(offsetOrigin.y, offsetOrigin.x);
+        
         motherShipDirection = motherShip - transform.position;
+        spaceShipDirection = spaceShip - transform.position;
+        randomShipDirection = randomShip - transform.position;
 
         this.Rb = GetComponent<Rigidbody2D>();
         this._spriteRenderer = GetComponent<SpriteRenderer>();
@@ -145,7 +170,12 @@ public class AttractableObject : MonoBehaviour, ICollectable
 
     private void AttackMotherShip()
     {
-        Vector3 norm = motherShipDirection.normalized;
+        Vector3 trueEnemy = motherShipDirection;
+
+        if (attackPlayerShip) trueEnemy = spaceShipDirection;
+        if (attackRandomShip) trueEnemy = randomShip;
+
+        Vector3 norm = trueEnemy.normalized;
         Vector3 step = actualAttack * 0.01f * norm;
 
         Vector3 newPos = transform.position + step;
@@ -188,7 +218,7 @@ public class AttractableObject : MonoBehaviour, ICollectable
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (attackMotherShip)
+        if (attackMotherShip && !attackPlayerShip && !attackRandomShip)
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);

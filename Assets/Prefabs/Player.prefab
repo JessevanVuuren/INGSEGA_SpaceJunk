@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 171462780608111427}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -550,7 +550,7 @@ Transform:
   m_GameObject: {fileID: 6211270702990144020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -4.31, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -792,7 +792,7 @@ GameObject:
   - component: {fileID: 5038672165024952869}
   - component: {fileID: 7195038290802166003}
   - component: {fileID: 2408383759994274697}
-  - component: {fileID: 206667590068668013}
+  - component: {fileID: 7060678904013337781}
   m_Layer: 6
   m_Name: GERV_0
   m_TagString: Player
@@ -815,6 +815,7 @@ Transform:
   m_Children:
   - {fileID: 2696915021634598846}
   - {fileID: 8392230441485266048}
+  - {fileID: 3374029766812504681}
   m_Father: {fileID: 171462780608111427}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8862477259395320506
@@ -959,6 +960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 200
   healthBar: {fileID: 0}
+  isBoss: 0
   followTransform: 0
   offset: {x: 0, y: 0, z: 0}
 --- !u!114 &6941633022260228994
@@ -1029,7 +1031,7 @@ MonoBehaviour:
   cooldownDuration: 1
   bufferWindow: 0.25
   fireKey: 32
---- !u!114 &206667590068668013
+--- !u!114 &7060678904013337781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1042,6 +1044,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 0}
+--- !u!1 &9197228339084973561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3374029766812504681}
+  - component: {fileID: 4018273662451790471}
+  m_Layer: 6
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3374029766812504681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9197228339084973561}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9056156241159145491}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4018273662451790471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9197228339084973561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd1266135b99c2e49af8e98f4fcfa758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aliens:
+  - {fileID: 6071709304209373177, guid: 60000463643489c4fbe2e700c7aa6257, type: 3}
+  - {fileID: 5856183301489711028, guid: 41acdb400e35067478c7931b6eb8b4d8, type: 3}
+  - {fileID: 4024806950988279323, guid: 2e764600e3f19dd4f91fbdb6f20ae7d9, type: 3}
+  randomSpawnRange: 16
+  timeBetweenSpawns: 15
 --- !u!1001 &5274193699253619209
 PrefabInstance:
   m_ObjectHideFlags: 0

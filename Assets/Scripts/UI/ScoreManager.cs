@@ -10,7 +10,7 @@ using UnityEngine.Serialization;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
-    [SerializeField] private int levelInt;
+    [FormerlySerializedAs("levelInt")] [SerializeField] private int nextLevelToUnlock;
     [SerializeField] private GameObject winMenu;
     [SerializeField] private Objective[] objectives = Array.Empty<Objective>();
 
@@ -51,7 +51,7 @@ public class ScoreManager : MonoBehaviour
         }
         
         // If all objectives are met, go to next level
-        PlayerPrefs.SetInt("LevelsFinished", levelInt);
+        PlayerPrefs.SetInt("LevelsFinished", nextLevelToUnlock);
         // SceneManager.LoadScene(2);
         
         if (this.winMenu == null) return;

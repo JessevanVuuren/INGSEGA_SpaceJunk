@@ -11245,6 +11245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7060678904013337781, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 246677248}
     - target: {fileID: 8096570672149247116, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: radarIndicators.Array.data[1].minDistance
       value: 6

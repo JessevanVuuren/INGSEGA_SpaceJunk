@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8596919803240952228}
   - component: {fileID: 7965705108540032176}
   - component: {fileID: 3295087639113870263}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 72
@@ -176,5 +176,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifespan: 5
-  damage: 80
+  damage: 100
   explosionVFX: {fileID: 5909302060578886463, guid: b978a8e85b60d8a4cabe13ad51941459, type: 3}

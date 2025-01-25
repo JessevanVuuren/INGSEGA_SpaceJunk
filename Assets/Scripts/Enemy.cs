@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public GameObject explosion;
     public bool isShoot = false;
     public float timeBetweenShoot = 5;
+    public float shootRange = 5f;
     public GameObject missilePrefab;
     public Transform launchPoint;
     public float launchForce = 10f;
@@ -39,8 +40,8 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        if (player != null && Vector3.Distance(transform.position, playerPos) < maxLookRadius)
+        float distance = Vector3.Distance(transform.position, playerPos);
+        if (player != null && distance < maxLookRadius)
         {
 
             rb.MovePosition(Vector3.MoveTowards(transform.position, playerPos, speed * Time.deltaTime));
@@ -50,7 +51,7 @@ public class Enemy : MonoBehaviour
             rb.MoveRotation(-(angle * Mathf.Rad2Deg));
 
             
-            if (isShoot && Time.time > timing)
+            if (isShoot && distance <= shootRange && Time.time > timing)
             {
                 Shoot();
                 timing = timeBetweenShoot + Time.time;

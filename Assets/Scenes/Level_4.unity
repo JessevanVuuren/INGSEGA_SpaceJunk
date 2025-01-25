@@ -466,7 +466,7 @@ PrefabInstance:
     - target: {fileID: 5798426080032189768, guid: 5866fb88e374b56409aceacf86103dd6, type: 3}
       propertyPath: tracker
       value: 
-      objectReference: {fileID: 765198577}
+      objectReference: {fileID: 898609648}
     - target: {fileID: 5798426080032189768, guid: 5866fb88e374b56409aceacf86103dd6, type: 3}
       propertyPath: updateInterval
       value: 0.2
@@ -485,6 +485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8269851901955194669, guid: 5866fb88e374b56409aceacf86103dd6, type: 3}
+    - {fileID: 6343606317622920493, guid: 5866fb88e374b56409aceacf86103dd6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4365584110911517496, guid: 5866fb88e374b56409aceacf86103dd6, type: 3}
@@ -555,18 +556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1266135b99c2e49af8e98f4fcfa758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alien: {fileID: 204330463458752329, guid: 5a0184c4173440e4a9579c6cf984eda8, type: 3}
-  spawnLocations:
-  - {fileID: 734014305}
-  - {fileID: 218677504}
-  - {fileID: 1627028396}
-  - {fileID: 144152174}
-  - {fileID: 2093700283}
-  - {fileID: 203173988}
-  - {fileID: 135004478}
-  - {fileID: 2042735932}
-  - {fileID: 1815319177}
-  - {fileID: 527662332}
+  aliens: []
+  randomSpawnRange: 1
   timeBetweenSpawns: 3
 --- !u!1 &734014304
 GameObject:
@@ -599,10 +590,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 630213038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &765198577 stripped
+--- !u!4 &898609648 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6513735808932606022, guid: 6df5e9fb52ce18043a267b48818e0e74, type: 3}
-  m_PrefabInstance: {fileID: 8886205785650109261}
+  m_CorrespondingSourceObject: {fileID: 7948878610743701048, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+  m_PrefabInstance: {fileID: 9214477474723389968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1030856072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1435186048172430983, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+  m_PrefabInstance: {fileID: 9214477474723389968}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1031310655 stripped
 MonoBehaviour:
@@ -619,6 +615,11 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6158357265667628842, guid: c24062b31013d9147b81120d6c366566, type: 3}
   m_PrefabInstance: {fileID: 246677247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1544816718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6558820547227708627, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+  m_PrefabInstance: {fileID: 9214477474723389968}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1627028395
 GameObject:
@@ -950,6 +951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7060678904013337781, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 1133289437}
     - target: {fileID: 7948878610743701048, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -957,6 +962,26 @@ PrefabInstance:
     - target: {fileID: 7948878610743701048, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096570672149247116, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: radarIndicators.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096570672149247116, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: radarIndicators.Array.data[2].arrow
+      value: 
+      objectReference: {fileID: 1544816718}
+    - target: {fileID: 8096570672149247116, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: radarIndicators.Array.data[2].objTag
+      value: Garbage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096570672149247116, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: radarIndicators.Array.data[2].hudElement
+      value: 
+      objectReference: {fileID: 1030856072}
+    - target: {fileID: 8096570672149247116, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: radarIndicators.Array.data[2].minDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
