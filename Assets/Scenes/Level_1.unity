@@ -1553,6 +1553,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1576616929}
+    - target: {fileID: 5038672165024952869, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: maxSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5987313633276594731, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: m_Name
       value: Player

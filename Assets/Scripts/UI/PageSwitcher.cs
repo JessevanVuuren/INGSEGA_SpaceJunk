@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -9,6 +10,9 @@ public class PageSwitcher : MonoBehaviour
 {
     [SerializeField] private GameObject[] pages;
     [SerializeField] private int pageIndex = 0;
+    
+    [Tooltip("Which page # out of the total # of pages is the player on? e.g. '1/2' or '2/10'.")]
+    [SerializeField] private TextMeshProUGUI pageCounter;
     public GameObject CurrentPage {get; private set;}
 
     void Start()
@@ -20,16 +24,24 @@ public class PageSwitcher : MonoBehaviour
     {
         // pageIndex cannot get greater than the max page index
         // So you don't overflow, neither does it return to page with index 0
-        pageIndex = Math.Min(pageIndex + 1, pages.Length - 1);
-        this.SwitchPage(this.pages[pageIndex]);
+        int newIndex = Math.Min(pageIndex + 1, pages.Length - 1);
+        this.SetPageIndex(newIndex);
     }
     
     public void Previous()
     {
         // prevent overflow below 0
         // neither does it return to page with max index
-        pageIndex = Math.Max(pageIndex - 1, 0);
-        this.SwitchPage(this.pages[pageIndex]);
+        int newIndex = Math.Max(pageIndex - 1, 0);
+        this.SetPageIndex(newIndex);
+    }
+    
+    public void SetPageIndex(int index)
+    {
+        this.pageIndex = index;
+        String pageCounterStr = $"{index + 1}/{pages.Length}";
+        this.pageCounter.text = pageCounterStr;
+        this.SwitchPage(this.pages[index]);
     }
 
     public void SwitchPage(GameObject page)

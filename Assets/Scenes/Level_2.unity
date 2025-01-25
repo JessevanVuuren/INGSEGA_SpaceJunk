@@ -3507,7 +3507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 953900678141617538, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: releaseForce
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 953900678141617538, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: attractionForce
