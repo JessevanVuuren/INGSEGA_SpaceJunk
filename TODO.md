@@ -8,6 +8,7 @@
   - alien healthbars fixen
   - Missiles don't inherit GERV's velocity at launch, so they trail the ship when it goes quickyl
   - Fix bug where special lvl5 space debris can't be captured
+  - Geef IntroScene een makeover, een brief van Arrank Cleanup dat ze je geaccepteerd hebben?
 # bugs
 ## levl4:
   - debris explode on collision with each other
