@@ -1,6 +1,4 @@
 # features
-  - bad end en good end scene maken.
-  - Update UI style of main menu
   - Allow WaveSpawner to spawn groups of asteroids pointing at a given direction, add it to level 4
   - change level requirement to protecting the mothership instead of gathering a set amount of debris.
     - modify scene manager's objective system to be able to handle this requirement
