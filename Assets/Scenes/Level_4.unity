@@ -251,6 +251,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 261964894155192844, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 141.6986
+      objectReference: {fileID: 0}
+    - target: {fileID: 261964894155192844, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 63.487
+      objectReference: {fileID: 0}
+    - target: {fileID: 261964894155192844, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -88.8512
+      objectReference: {fileID: 0}
+    - target: {fileID: 261964894155192844, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -139.36504
+      objectReference: {fileID: 0}
     - target: {fileID: 1431409975442013145, guid: c24062b31013d9147b81120d6c366566, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -336,12 +352,56 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3046737028005640998, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: nextLevelToUnlock
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046737028005640998, guid: c24062b31013d9147b81120d6c366566, type: 3}
       propertyPath: amountNeedToCollect
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046737028005640998, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: objectives.Array.data[0].scoreText
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3341667562363009413, guid: c24062b31013d9147b81120d6c366566, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968681668573990982, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968681668573990982, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968681668573990982, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968681668573990982, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968681668573990982, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299517796949816588, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: m_text
+      value: Protect the mothership!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299517796949816588, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: m_margin.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299517796949816588, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299517796949816588, guid: c24062b31013d9147b81120d6c366566, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7069639859373209331, guid: c24062b31013d9147b81120d6c366566, type: 3}
       propertyPath: m_AnchorMax.x
@@ -364,7 +424,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 630213037}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1710093060991595334, guid: c24062b31013d9147b81120d6c366566, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c24062b31013d9147b81120d6c366566, type: 3}

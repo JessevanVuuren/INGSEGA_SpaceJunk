@@ -1683,7 +1683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a48afe65a25f84caf86f91abf67fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelInt: 1
+  nextLevelToUnlock: 1
   winMenu: {fileID: 7420835949062797387}
   objectives:
   - objectTag: Garbage
@@ -1878,8 +1878,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 176.9328, y: 76.35156}
-  m_SizeDelta: {x: 314.5217, y: 114.7034}
+  m_AnchoredPosition: {x: 145.37009, y: 70.5901}
+  m_SizeDelta: {x: 251.3963, y: 103.1805}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3804135266728134793
 CanvasRenderer:
