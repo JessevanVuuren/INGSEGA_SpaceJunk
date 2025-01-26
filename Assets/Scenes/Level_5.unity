@@ -636,7 +636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972580544791756891, guid: 748fd7a304286b44a969ca1b2ac91270, type: 3}
       propertyPath: Health
-      value: 200
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1972580544791756891, guid: 748fd7a304286b44a969ca1b2ac91270, type: 3}
       propertyPath: healthBar
