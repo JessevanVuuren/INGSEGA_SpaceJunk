@@ -22,4 +22,6 @@ public class LevelUnlocking : MonoBehaviour
             button.interactable = i <= nextLevel;
         }
     }
+    
 }
+ 

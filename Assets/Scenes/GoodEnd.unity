@@ -445,6 +445,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1634926041}
     m_Modifications:
+    - target: {fileID: 2081749954936716129, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -7.7653
+      objectReference: {fileID: 0}
+    - target: {fileID: 2081749954936716129, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.8827057
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320466982482109388, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 872.0061
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320466982482109388, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.2534
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320466982482109388, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 23.4845
+      objectReference: {fileID: 0}
     - target: {fileID: 4101679655404269857, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -525,9 +545,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4949785062992575374, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_text
+      value: "With the destruction of the rebel faction and its alien collaborators,
+        Bas secures a fragile victory for humanity's continued expansion into space.
+        The skies above Earth glimmer with the lights of orbiting stations, bustling
+        trade vessels, and gleaming colonies. Order has been restored, and the cleanup
+        efforts across the solar system are poised to accelerate, paving the way
+        for humanity's future among the stars.\nYet, as Bas watches the thriving
+        orbit of Earth, a shadow of doubt lingers. The same interplanetary government
+        that funded this cleanup effort\u2014the same system that suffocates dissent
+        and prioritizes corporate power over humanity\u2014remains firmly in control.
+        The corruption that threads through the heart of this vast machine is untouched,
+        its grip on society as strong as ever.\nBas has given humanity another chance
+        to dream of the stars, but the question remains: at what cost? The debris
+        is gone, but the system that created it endures. For now, Bas chooses to
+        believe that a cleaner future can one day lead to a freer one."
+      objectReference: {fileID: 0}
     - target: {fileID: 5354151597327961410, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_Name
       value: EndingPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458758750402152111, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 323.8387
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458758750402152111, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -703.4127
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458758750402152111, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -310.65494
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779201900927867144, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -7.7653
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779201900927867144, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.8827057
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

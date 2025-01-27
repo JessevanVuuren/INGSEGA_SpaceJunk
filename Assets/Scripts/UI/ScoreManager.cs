@@ -21,6 +21,18 @@ public class ScoreManager : MonoBehaviour
         UpdateText();
     }
 
+    public void Update() {
+        if (Input.GetKeyDown(KeyCode.P)) {
+            objectives[0].amount++;
+        }
+        if (Input.GetKeyDown(KeyCode.O)) {
+            objectives[0].amount--;
+        }
+
+        UpdateText();
+        CheckLevelEndCondition();
+    }
+
     private void UpdateText()
     {
         foreach (var objective in this.objectives)

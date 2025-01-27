@@ -606,12 +606,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -180
       objectReference: {fileID: 0}
+    - target: {fileID: 2173910324195454561, guid: 0bc44bf432e29fe47949fd984a69e24e, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173910324195454561, guid: 0bc44bf432e29fe47949fd984a69e24e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1054468251521000286, guid: 5e473b2400962e8449c8bc6461224e61, type: 3}
+    - target: {fileID: 6172919010538492433, guid: 0bc44bf432e29fe47949fd984a69e24e, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172919010538492433, guid: 0bc44bf432e29fe47949fd984a69e24e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1543450907887238815, guid: 599f9f5c1c7e82a41a8d8f90de114a0b, type: 3}
     - target: {fileID: 6174930130929882013, guid: 0bc44bf432e29fe47949fd984a69e24e, type: 3}
       propertyPath: m_Name
       value: MessagePanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5208744354626706930, guid: 0bc44bf432e29fe47949fd984a69e24e, type: 3}
+    - {fileID: 2345480023691333141, guid: 0bc44bf432e29fe47949fd984a69e24e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bc44bf432e29fe47949fd984a69e24e, type: 3}

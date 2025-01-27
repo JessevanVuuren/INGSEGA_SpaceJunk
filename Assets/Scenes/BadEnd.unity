@@ -541,6 +541,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4949785062992575374, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_text
+      value: 'The rebel faction''s desperate final assault has succeeded, but it
+        came at an unimaginable price. The orbits of Earth and countless other worlds
+        are now graveyards of shattered ships and spreading debris, a cascading storm
+        of destruction. The debris, unyielding and unrelenting, bombards the planets
+        below, extinguishing the last flames of humanity''s interplanetary civilization.
+
+        In
+        the silence that follows, a grim truth takes hold. The totalitarian regime
+        and the corporate empire that ruled the stars are no more, their oppressive
+        grip broken. But so too is the fragile order they maintained. The rebels''
+        dream of liberation has turned into a nightmare of annihilation.
+
+        What
+        remains of humanity clings to the ruins, scattered across devastated colonies
+        and dying planets. The irony of it all gnaws at the edges of this desolate
+        reality: in their pursuit of freedom, humanity destroyed the very foundation
+        upon which any future might have been built.'
+      objectReference: {fileID: 0}
     - target: {fileID: 4950355117457267543, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_text
       value: Try again
