@@ -445,25 +445,69 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1634926041}
     m_Modifications:
+    - target: {fileID: 149139182802715057, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 149139182802715057, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 149139182802715057, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 511.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 149139182802715057, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 149139182802715057, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -259.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 149139182802715057, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2081749954936716129, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -7.7653
+      value: -0.0000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 2081749954936716129, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.8827057
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320466982482109388, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320466982482109388, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320466982482109388, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320466982482109388, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3320466982482109388, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 872.0061
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320466982482109388, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3320466982482109388, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.2534
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3320466982482109388, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 23.4845
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4101679655404269857, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_Pivot.x
@@ -552,15 +596,35 @@ PrefabInstance:
         The skies above Earth glimmer with the lights of orbiting stations, bustling
         trade vessels, and gleaming colonies. Order has been restored, and the cleanup
         efforts across the solar system are poised to accelerate, paving the way
-        for humanity's future among the stars.\nYet, as Bas watches the thriving
+        for humanity's future among the stars.\n\nYet, as Bas watches the thriving
         orbit of Earth, a shadow of doubt lingers. The same interplanetary government
         that funded this cleanup effort\u2014the same system that suffocates dissent
         and prioritizes corporate power over humanity\u2014remains firmly in control.
         The corruption that threads through the heart of this vast machine is untouched,
-        its grip on society as strong as ever.\nBas has given humanity another chance
-        to dream of the stars, but the question remains: at what cost? The debris
-        is gone, but the system that created it endures. For now, Bas chooses to
-        believe that a cleaner future can one day lead to a freer one."
+        its grip on society as strong as ever.\n\nBas has given humanity another
+        chance to dream of the stars, but the question remains: at what cost? The
+        debris is gone, but the system that created it endures. For now, Bas chooses
+        to believe that a cleaner future can one day lead to a freer one."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949785062992575374, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_fontSize
+      value: 12.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949785062992575374, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949785062992575374, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_lineSpacing
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949785062992575374, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_characterSpacing
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949785062992575374, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5354151597327961410, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_Name
@@ -568,23 +632,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7458758750402152111, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 323.8387
+      value: 404.1962
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458758750402152111, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 391.4998
       objectReference: {fileID: 0}
     - target: {fileID: 7458758750402152111, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -703.4127
+      value: -717.6213
       objectReference: {fileID: 0}
     - target: {fileID: 7458758750402152111, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -310.65494
+      value: -319.88788
       objectReference: {fileID: 0}
     - target: {fileID: 8779201900927867144, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -7.7653
+      value: -0.0000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 8779201900927867144, guid: 6c797c7cf48311b4ab3cd4a754260016, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.8827057
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
