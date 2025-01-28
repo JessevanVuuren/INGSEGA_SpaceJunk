@@ -11233,6 +11233,10 @@ PrefabInstance:
       propertyPath: timeBetweenSpawns
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4018273662451790471, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: timeBetweenSpawns
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4345305308704205999, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: healthBar
       value: 
@@ -11249,6 +11253,10 @@ PrefabInstance:
       propertyPath: menu
       value: 
       objectReference: {fileID: 246677248}
+    - target: {fileID: 7948878610743701048, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8096570672149247116, guid: ac68036d019cbdd43a412091aa3ec1f7, type: 3}
       propertyPath: radarIndicators.Array.data[1].minDistance
       value: 6
