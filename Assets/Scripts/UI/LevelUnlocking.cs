@@ -1,27 +1,29 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelUnlocking : MonoBehaviour
+namespace UI
 {
-    public Button[] levelButtons; // Assign your buttons in the Inspector
-    public int unlockedLevels = 0; // Number of levels unlocked
-
-    void Start()
+    public class LevelUnlocking : MonoBehaviour
     {
-        UpdateLevelButtons();
-    }
+        public Button[] levelButtons; // Assign your buttons in the Inspector
+        public int unlockedLevels = 0; // Number of levels unlocked
 
-    private void UpdateLevelButtons()
-    {
-        int nextLevel = PlayerPrefs.GetInt("LevelsFinished", 0);
-
-        for (int i = 0; i < levelButtons.Length; i++)
+        void Start()
         {
-            Button button = levelButtons[i];
-            button.interactable = i <= nextLevel;
+            UpdateLevelButtons();
         }
-    }
+
+        private void UpdateLevelButtons()
+        {
+            int nextLevel = PlayerPrefs.GetInt("LevelsFinished", 0);
+
+            for (int i = 0; i < levelButtons.Length; i++)
+            {
+                Button button = levelButtons[i];
+                button.interactable = i <= nextLevel;
+            }
+        }
     
+    }
 }
  

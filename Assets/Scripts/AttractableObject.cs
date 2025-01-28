@@ -1,4 +1,5 @@
 using System;
+using Mothership;
 using UnityEngine;
 
 public class AttractableObject : MonoBehaviour, ICollectable

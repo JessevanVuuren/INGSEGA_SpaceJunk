@@ -1,12 +1,14 @@
 using System;
-using UnityEngine;
 
-public interface ICollectable
+namespace Mothership
 {
-    // TODO: change returntype to something which renpresents the type of collectible.
-    public void Collect();
+    public interface ICollectable
+    {
+        // TODO: change returntype to something which renpresents the type of collectible.
+        public void Collect();
     
-    public String GetTag();
+        public String GetTag();
     
-    public IDamageEvent GetDamage();
+        public IDamageEvent GetDamage();
+    }
 }

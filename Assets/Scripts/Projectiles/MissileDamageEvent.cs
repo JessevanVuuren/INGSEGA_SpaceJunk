@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public class MissileDamageEvent: IDamageEvent
+namespace Projectiles
 {
-    public float IncomingDamage { get;}
-    public Vector2? LocalAngle { get; }
-    public Vector2? LocalPosition { get; }
-
-    public MissileDamageEvent(float incomingDamage)
+    public class MissileDamageEvent: IDamageEvent
     {
-        this.IncomingDamage = incomingDamage;
+        public float IncomingDamage { get;}
+        public Vector2? LocalAngle { get; }
+        public Vector2? LocalPosition { get; }
+
+        public MissileDamageEvent(float incomingDamage)
+        {
+            this.IncomingDamage = incomingDamage;
+        }
     }
 }

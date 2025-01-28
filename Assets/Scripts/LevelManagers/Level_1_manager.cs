@@ -1,32 +1,35 @@
 using UnityEngine;
 
-public class Level_1_manager : MonoBehaviour
+namespace LevelManagers
 {
-
-    public int delayTimeForAlien = 10;
-    public GameObject alien;
-    public GameObject player;
-
-    private float alienTime;
-    private bool alienDidSpawn = false;
-
-    void Start()
+    public class Level_1_manager : MonoBehaviour
     {
-        alienTime = Time.time + delayTimeForAlien;
 
-    }
+        public int delayTimeForAlien = 10;
+        public GameObject alien;
+        public GameObject player;
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (Time.time > alienTime && !alienDidSpawn)
+        private float alienTime;
+        private bool alienDidSpawn = false;
+
+        void Start()
         {
-            alienDidSpawn = true;
-            
-            Vector3 spawn = player.transform.position;
-            spawn.x =- 9;
+            alienTime = Time.time + delayTimeForAlien;
 
-            Instantiate(alien, spawn, Quaternion.identity);
+        }
+
+        // Update is called once per frame
+        void FixedUpdate()
+        {
+            if (Time.time > alienTime && !alienDidSpawn)
+            {
+                alienDidSpawn = true;
+            
+                Vector3 spawn = player.transform.position;
+                spawn.x =- 9;
+
+                Instantiate(alien, spawn, Quaternion.identity);
+            }
         }
     }
 }

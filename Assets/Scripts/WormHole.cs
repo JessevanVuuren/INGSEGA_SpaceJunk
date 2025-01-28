@@ -1,4 +1,3 @@
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class WormHole : MonoBehaviour
@@ -13,9 +12,7 @@ public class WormHole : MonoBehaviour
     public ParticleSystem dust;
     public GameObject disk;
     private float currentTime;
-
-
-
+    
     void Start()
     {
         currentTime = Time.time;

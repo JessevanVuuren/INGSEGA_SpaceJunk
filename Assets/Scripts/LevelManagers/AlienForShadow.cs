@@ -1,39 +1,42 @@
 using UnityEngine;
 
-public class AlienForShadow : MonoBehaviour
+namespace LevelManagers
 {
-    public float speed;
-    public float exponentially = 0.0f;
-    public GameObject player;
-
-
-    private Rigidbody2D rb;
-    private Vector3 originalPos;
-    private Vector3 endPos;
-    void Start()
+    public class AlienForShadow : MonoBehaviour
     {
-        player = GameObject.FindWithTag("MainCamera");
+        public float speed;
+        public float exponentially = 0.0f;
+        public GameObject player;
 
-        rb = GetComponent<Rigidbody2D>();
 
-        originalPos = transform.position;
+        private Rigidbody2D rb;
+        private Vector3 originalPos;
+        private Vector3 endPos;
+        void Start()
+        {
+            player = GameObject.FindWithTag("MainCamera");
 
-        endPos = originalPos;
-        endPos.x += 15;
-        endPos.y -= 12;
-    }
+            rb = GetComponent<Rigidbody2D>();
 
-    void FixedUpdate()
-    {
-        Vector3 playerPos = player.transform.position;
-        speed += exponentially;
-        rb.MovePosition(Vector3.MoveTowards(transform.position, endPos + playerPos, speed * Time.deltaTime));
+            originalPos = transform.position;
 
-        Vector3 direction = playerPos - transform.position;
-        float angle = Mathf.Atan2(direction.x, direction.y);
-        rb.MoveRotation(-(angle * Mathf.Rad2Deg));
+            endPos = originalPos;
+            endPos.x += 15;
+            endPos.y -= 12;
+        }
 
-        Vector3 newPos = transform.position - playerPos;
-        if (newPos.y < -10 && newPos.x > 5) Destroy(gameObject);
+        void FixedUpdate()
+        {
+            Vector3 playerPos = player.transform.position;
+            speed += exponentially;
+            rb.MovePosition(Vector3.MoveTowards(transform.position, endPos + playerPos, speed * Time.deltaTime));
+
+            Vector3 direction = playerPos - transform.position;
+            float angle = Mathf.Atan2(direction.x, direction.y);
+            rb.MoveRotation(-(angle * Mathf.Rad2Deg));
+
+            Vector3 newPos = transform.position - playerPos;
+            if (newPos.y < -10 && newPos.x > 5) Destroy(gameObject);
+        }
     }
 }
