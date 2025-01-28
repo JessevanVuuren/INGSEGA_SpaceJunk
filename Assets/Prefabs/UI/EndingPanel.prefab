@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.0000023841858, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3683915943432720549
 CanvasRenderer:
@@ -65,7 +65,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: lorem ipsum
+  m_text: "With the destruction of the rebel faction and its alien collaborators,
+    Bas secures a fragile victory for humanity's continued expansion into space.
+    The skies above Earth glimmer with the lights of orbiting stations, bustling
+    trade vessels, and gleaming colonies. Order has been restored, and the cleanup
+    efforts across the solar system are poised to accelerate, paving the way for
+    humanity's future among the stars.\n\nYet, as Bas watches the thriving orbit
+    of Earth, a shadow of doubt lingers. The same interplanetary government that
+    funded this cleanup effort\u2014the same system that suffocates dissent and prioritizes
+    corporate power over humanity\u2014remains firmly in control. The corruption
+    that threads through the heart of this vast machine is untouched, its grip on
+    society as strong as ever.\n\nBas has given humanity another chance to dream
+    of the stars, but the question remains: at what cost? The debris is gone, but
+    the system that created it endures. For now, Bas chooses to believe that a cleaner
+    future can one day lead to a freer one."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -92,19 +105,19 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
+  m_fontSize: 12.95
   m_fontSizeBase: 11
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 11
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 2
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 10
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -304,8 +317,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -706.0083, y: -310.6549}
-  m_SizeDelta: {x: 329.0298, y: 370.5023}
+  m_AnchoredPosition: {x: -717.6213, y: -319.88788}
+  m_SizeDelta: {x: 404.1962, y: 391.4998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &243626210085346934
 CanvasRenderer:
@@ -515,10 +528,10 @@ RectTransform:
   - {fileID: 149139182802715057}
   m_Father: {fileID: 4101679655404269857}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.2297565, y: 23.484499}
-  m_SizeDelta: {x: 874.9724, y: 499.1424}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5354151597327961410
 GameObject:
@@ -546,7 +559,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5354151597327961410}
-  m_LocalRotation: {x: -0, y: -0, z: 0.000002905726, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -641,10 +654,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3320466982482109388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 165.63, y: 23.458694}
-  m_SizeDelta: {x: 539.7603, y: 40.5807}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -259.8, y: 0}
+  m_SizeDelta: {x: 511.6, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2517090802949154179
 CanvasRenderer:
@@ -988,7 +1001,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.0000023841858, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3238373952892265652
 CanvasRenderer:
