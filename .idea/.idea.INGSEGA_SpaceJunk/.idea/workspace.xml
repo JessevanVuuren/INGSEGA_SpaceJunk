@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d1a1ac8-c9bb-4a6a-b06e-cab2027aa808" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Screenshot 2025-01-27 201045.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Screenshot 2025-01-27 201045.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.INGSEGA_SpaceJunk/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.INGSEGA_SpaceJunk/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/EnemysTest.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/EnemysTest.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayerAndBasicMechanicsTestingScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayerAndBasicMechanicsTestingScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePixelUI/prefabs/Gray_black/square/buttons/button_small_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimplePixelUI/prefabs/Gray_black/square/buttons/button_small_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +117,7 @@
       <workItem from="1736021283663" duration="10767000" />
       <workItem from="1736354564993" duration="6439000" />
       <workItem from="1737577273416" duration="22394000" />
+      <workItem from="1738106407466" duration="664000" />
     </task>
     <servers />
   </component>
